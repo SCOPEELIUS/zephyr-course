@@ -4,4 +4,4 @@ build
 # West files
 .west
 deps
-.venv
+.venv/
