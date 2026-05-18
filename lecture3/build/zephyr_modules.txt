@@ -1,4 +1,0 @@
-"cmsis_6":"D:/zephyr-course/deps/modules/hal/cmsis_6":"${ZEPHYR_CMSIS_6_CMAKE_DIR}"
-"hal_espressif":"D:/zephyr-course/deps/modules/hal/espressif":"${ZEPHYR_HAL_ESPRESSIF_CMAKE_DIR}"
-"hal_nordic":"D:/zephyr-course/deps/modules/hal/nordic":"${ZEPHYR_HAL_NORDIC_CMAKE_DIR}"
-"hal_stm32":"D:/zephyr-course/deps/modules/hal/stm32":"D:/zephyr-course/deps/modules/hal/stm32"

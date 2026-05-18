@@ -1,5 +1,5 @@
 [manifest]
-path = lecture3/
+path = app/
 file = west.yml
 
 [zephyr]
