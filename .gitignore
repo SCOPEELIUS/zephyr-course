@@ -1,5 +1,5 @@
 ﻿.venv/
-app/build/
+build/
 deps/
 bootloader/
 modules/
