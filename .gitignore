@@ -1,7 +1,5 @@
-# Build
-build
-
-# West files
-.west
-deps
-.venv/
+﻿.venv/
+app/build/
+deps/
+bootloader/
+modules/

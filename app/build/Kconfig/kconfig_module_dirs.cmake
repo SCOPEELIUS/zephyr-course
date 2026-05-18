@@ -1,0 +1,5 @@
+set(kconfig_env_dirs)
+list(APPEND kconfig_env_dirs ZEPHYR_CMSIS_6_MODULE_DIR=D:/zephyr-course/deps/modules/hal/cmsis_6)
+list(APPEND kconfig_env_dirs ZEPHYR_HAL_ESPRESSIF_MODULE_DIR=D:/zephyr-course/deps/modules/hal/espressif)
+list(APPEND kconfig_env_dirs ZEPHYR_HAL_NORDIC_MODULE_DIR=D:/zephyr-course/deps/modules/hal/nordic)
+list(APPEND kconfig_env_dirs ZEPHYR_HAL_STM32_MODULE_DIR=D:/zephyr-course/deps/modules/hal/stm32)
