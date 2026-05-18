@@ -1,30 +1,50 @@
-#include <zephyr/drivers/gpio.h>
 #include <zephyr/kernel.h>
+#include <zephyr/drivers/pwm.h>
 #include <zephyr/logging/log.h>
-
-#define SLEEP_TIME_MS 1000
-
-/* The devicetree node identifier for the "led0" alias. */
-#define LED_NODE DT_ALIAS(led0)
-
-static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED_NODE, gpios);
 
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 
-int main(void)
-{
-    bool led_state = true;
+static const struct pwm_dt_spec led_pwm = PWM_DT_SPEC_GET(DT_ALIAS(pwm_led0));
 
-    if (!gpio_is_ready_dt(&led)) return 0;
+int main(void) {
+	if (!IS_ENABLED(CONFIG_MY_LED_SUBSYSTEM)) {
+		return 0;
+	}
 
-    if (gpio_pin_configure_dt(&led, GPIO_OUTPUT_ACTIVE) < 0) return 0;
+	if (!pwm_is_ready_dt(&led_pwm)) {
+		LOG_ERR("PWM device on GPIO 45 not ready!");
+		return 0;
+	}
 
-    while (1) {
-        if (gpio_pin_toggle_dt(&led) < 0) return 0;
+	const uint32_t brightness = CONFIG_LED_BRIGHTNESS;
+	const uint32_t fade_ms = CONFIG_LED_FADE_MS;
+	const uint32_t interval = CONFIG_BLINK_TIME_MS;
 
-        led_state = !led_state;
-        LOG_INF("LED state: %s", led_state ? "ON" : "OFF");
-        k_msleep(SLEEP_TIME_MS);
-    }
-    return 0;
+	LOG_INF("LED Subsystem Live: %d%% brightness, %dms fade, %dms interval", 
+			brightness, fade_ms, interval);
+
+	while (1) {
+		if (fade_ms > 0) {
+			for (int i = 0; i <= brightness; i++) {
+				pwm_set_pulse_dt(&led_pwm, (led_pwm.period * i) / 100);
+				k_msleep(fade_ms / brightness);
+			}
+		} else {
+			pwm_set_pulse_dt(&led_pwm, (led_pwm.period * brightness) / 100);
+		}
+
+		k_msleep(interval);
+
+		if (fade_ms > 0) {
+			for (int i = brightness; i >= 0; i--) {
+				pwm_set_pulse_dt(&led_pwm, (led_pwm.period * i) / 100);
+				k_msleep(fade_ms / brightness);
+			}
+		} else {
+			pwm_set_pulse_dt(&led_pwm, 0);
+		}
+
+		k_msleep(interval);
+	}
+	return 0;
 }

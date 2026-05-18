@@ -77,6 +77,17 @@
     ]
   ],
   [
+    "CONFIG_DT_HAS_ESPRESSIF_ESP32_LEDC_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
+      2783
+    ]
+  ],
+  [
     "CONFIG_DT_HAS_ESPRESSIF_ESP32_PINCTRL_ENABLED",
     "n",
     "bool",
@@ -220,17 +231,6 @@
     ]
   ],
   [
-    "CONFIG_DT_HAS_GPIO_LEDS_ENABLED",
-    "n",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      3258
-    ]
-  ],
-  [
     "CONFIG_DT_HAS_MMIO_SRAM_ENABLED",
     "n",
     "bool",
@@ -239,6 +239,17 @@
     [
       "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
       5953
+    ]
+  ],
+  [
+    "CONFIG_DT_HAS_PWM_LEDS_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
+      9518
     ]
   ],
   [
@@ -7988,9 +7999,123 @@
     "CONFIG_PWM",
     "y",
     "bool",
+    "y",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      3
+    ]
+  ],
+  [
+    "CONFIG_PWM_LOG_LEVEL_OFF",
+    "y",
+    "bool",
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_PWM_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PWM_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PWM_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PWM_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PWM_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_PWM_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
+    "CONFIG_PWM_INIT_PRIORITY",
+    "y",
+    "int",
+    "50",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\drivers\\pwm\\Kconfig",
+      19
+    ]
+  ],
+  [
+    "CONFIG_PWM_CAPTURE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PWM_EVENT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PWM_LED_ESP32",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\drivers\\pwm\\Kconfig.esp32",
+      9
+    ]
+  ],
+  [
+    "CONFIG_PWM_TC_INIT_PRIORITY",
+    "y",
+    "int",
+    "50",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\drivers\\pwm\\Kconfig.sam0_tc",
+      15
+    ]
   ],
   [
     "CONFIG_RETAINED_MEM",
@@ -11420,6 +11545,93 @@
     [
       "D:\\zephyr-course\\deps\\zephyr\\Kconfig.zephyr",
       1216
+    ]
+  ],
+  [
+    "CONFIG_MY_LED_SUBSYSTEM",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      7
+    ]
+  ],
+  [
+    "CONFIG_BLINK_TIME_250MS",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BLINK_TIME_500MS",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    null
+  ],
+  [
+    "CONFIG_BLINK_TIME_1S",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BLINK_TIME_2S",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BLINK_TIME_MS",
+    "y",
+    "int",
+    "500",
+    "default",
+    [
+      "D:/zephyr-course/app/Kconfig",
+      29
+    ]
+  ],
+  [
+    "CONFIG_LED_ADVANCED_SETTINGS",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      9
+    ]
+  ],
+  [
+    "CONFIG_LED_BRIGHTNESS",
+    "y",
+    "int",
+    "85",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      10
+    ]
+  ],
+  [
+    "CONFIG_LED_FADE_MS",
+    "y",
+    "int",
+    "1000",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      11
     ]
   ]
 ]

@@ -27,7 +27,7 @@
 		watchdog0 = &wdt0;     /* in deps\zephyr\boards\espressif\esp32s3_devkitc\esp32s3_devkitc_procpu.dts:20 */
 		uart-0 = &uart0;       /* in deps\zephyr\boards\espressif\esp32s3_devkitc\esp32s3_devkitc_procpu.dts:21 */
 		sw0 = &button0;        /* in deps\zephyr\boards\espressif\esp32s3_devkitc\esp32s3_devkitc_procpu.dts:22 */
-		led0 = &green_led;     /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:4 */
+		pwm-led0 = &pwm_led_0; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:6 */
 	};
 
 	/* node '/soc' defined in deps\zephyr\dts\xtensa\xtensa.dtsi:10 */
@@ -308,7 +308,7 @@
 				interrupts = < 0x10 0x0 0x0 >;       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:264 */
 				interrupt-parent = < &intc >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:265 */
 				ngpios = < 0x20 >;                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:271 */
-				status = "okay";                     /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:17 */
+				status = "okay";                     /* in deps\zephyr\boards\espressif\esp32s3_devkitc\esp32s3_devkitc_procpu.dts:57 */
 				phandle = < 0x5 >;                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:252 */
 			};
 
@@ -643,7 +643,18 @@
 			#pwm-cells = < 0x3 >;                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:534 */
 			reg = < 0x60019000 0x1000 >;         /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:535 */
 			clocks = < &clock 0x64 >;            /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:536 */
-			status = "disabled";                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:537 */
+			pinctrl-0 = < &ledc0_default >;      /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:28 */
+			pinctrl-names = "default";           /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:29 */
+			status = "okay";                     /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:30 */
+			#address-cells = < 0x1 >;            /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:31 */
+			#size-cells = < 0x0 >;               /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:32 */
+			phandle = < 0x12 >;                  /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:12 */
+
+			/* node '/soc/ledc@60019000/channel0@0' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:34 */
+			channel0@0 {
+				reg = < 0x0 >;   /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:35 */
+				timer = < 0x0 >; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:36 */
+			};
 		};
 
 		/* node '/soc/mcpwm@6001e000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:540 */
@@ -778,7 +789,7 @@
 				power-state-name = "standby";      /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:54 */
 				min-residency-us = < 0x3e8 >;      /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:55 */
 				exit-latency-us = < 0x32 >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:56 */
-				phandle = < 0xf >;                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:36 */
+				phandle = < 0x10 >;                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:36 */
 			};
 
 			/* node '/cpus/power-states/deep_sleep' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:59 */
@@ -786,7 +797,7 @@
 				compatible = "zephyr,power-state"; /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:63 */
 				power-state-name = "soft-off";     /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:64 */
 				status = "disabled";               /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:65 */
-				phandle = < 0x10 >;                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:36 */
+				phandle = < 0x11 >;                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:36 */
 			};
 		};
 	};
@@ -944,6 +955,17 @@
 				         < 0xff9d06 >; /* in deps\zephyr\boards\espressif\esp32s3_devkitc\esp32s3_devkitc-pinctrl.dtsi:104 */
 			};
 		};
+
+		/* node '/pin-controller/ledc0_default' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:19 */
+		ledc0_default: ledc0_default {
+			phandle = < 0xf >; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:28 */
+
+			/* node '/pin-controller/ledc0_default/group1' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:20 */
+			group1 {
+				pinmux = < 0x24ffc5 >; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:21 */
+				output-enable;         /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:22 */
+			};
+		};
 	};
 
 	/* node '/clock' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:86 */
@@ -968,14 +990,14 @@
 		};
 	};
 
-	/* node '/leds' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:7 */
-	leds {
-		compatible = "gpio-leds"; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:8 */
+	/* node '/pwmleds' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:9 */
+	pwmleds {
+		compatible = "pwm-leds"; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:10 */
 
-		/* node '/leds/green_led' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:9 */
-		green_led: green_led {
-			gpios = < &gpio0 0x4 0x0 >; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:10 */
-			label = "green_led";        /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:11 */
+		/* node '/pwmleds/pwm_led_0' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:11 */
+		pwm_led_0: pwm_led_0 {
+			pwms = < &ledc0 0x0 0x1388 0x0 >;    /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:12 */
+			label = "S3 External LED on GPIO 5"; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:13 */
 		};
 	};
 };

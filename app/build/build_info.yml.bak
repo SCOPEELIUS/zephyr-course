@@ -1,4 +1,4 @@
 west:
-  command: D:\zephyr-course\.venv\Scripts\west build -p always
+  command: D:\zephyr-course\.venv\Scripts\west build -p
   topdir: D:\zephyr-course
   version: 1.5.0

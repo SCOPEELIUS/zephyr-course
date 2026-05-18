@@ -74,6 +74,7 @@
 		"D:/zephyr-course/app/build/zephyr/drivers/gpio/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/drivers/pinctrl/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/drivers/pinctrl/renesas/cmake_install.cmake",
+		"D:/zephyr-course/app/build/zephyr/drivers/pwm/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/drivers/serial/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/drivers/timer/cmake_install.cmake",
 		"D:/zephyr-course/app/build/modules/cmsis_6/cmake_install.cmake",

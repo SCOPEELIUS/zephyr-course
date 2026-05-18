@@ -1,0 +1,55 @@
+source "Kconfig.zephyr"
+
+menuconfig MY_LED_SUBSYSTEM
+    bool "LED Subsystem"
+    help
+        Enable support for the custom LED Subsystem.
+
+
+if MY_LED_SUBSYSTEM 
+
+choice BLINK_TIME_SELECT
+    prompt "Blink Time"
+    default BLINK_TIME_500MS
+    help
+        Select the blink time for the LED.
+config BLINK_TIME_250MS
+    bool "250 ms"
+config BLINK_TIME_500MS
+    bool "500 ms"
+config BLINK_TIME_1S
+    bool "1 second"
+config BLINK_TIME_2S
+    bool "2 seconds"
+endchoice
+
+config BLINK_TIME_MS
+    int "Blink Time (ms)"
+    default 250 if BLINK_TIME_250MS
+    default 500 if BLINK_TIME_500MS
+    default 1000 if BLINK_TIME_1S
+    default 2000 if BLINK_TIME_2S
+
+menuconfig LED_ADVANCED_SETTINGS
+    bool "Advanced LED Settings"
+    help
+        Enable advanced settings for the LED subsystem.
+
+menu "Expert settings"
+    visible if LED_ADVANCED_SETTINGS
+
+    config LED_BRIGHTNESS
+        int "LED Brightness"
+        range 0 100
+        default 50
+        help
+            Set the brightness level of the LED (0-100%).
+    config LED_FADE_MS
+        int "LED Fade Time (ms)"
+        range 0 5000
+        default 1000
+        help
+            Set the fade time for the LED in milliseconds.
+            
+endmenu
+endif

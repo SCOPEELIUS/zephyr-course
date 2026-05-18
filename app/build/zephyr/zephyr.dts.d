@@ -28,4 +28,5 @@ empty_file.o: D:/zephyr-course/deps/zephyr/misc/empty_file.c \
  D:/zephyr-course/deps/zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc-pinctrl.dtsi \
  D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pinctrl/esp-pinctrl-common.h \
  D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pinctrl/esp32s3-gpio-sigmap.h \
- boards/esp32s3_devkitc.overlay
+ boards/esp32s3_devkitc.overlay \
+ D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pwm/pwm.h

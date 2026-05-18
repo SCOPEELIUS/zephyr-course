@@ -1,18 +1,38 @@
+#include <zephyr/dt-bindings/pwm/pwm.h>
+#include <zephyr/dt-bindings/pinctrl/esp32s3-pinctrl.h>
+
 / {
-	
-	aliases {
-		led0 = &green_led;
-	};
-	
-	leds {
-		compatible = "gpio-leds";
-		green_led: green_led{
-			gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
-			label = "green_led";
-		};
-	};
+    aliases {
+        pwm-led0 = &pwm_led_0;
+    };
+
+    pwmleds {
+        compatible = "pwm-leds";
+        pwm_led_0: pwm_led_0 {
+            pwms = <&ledc0 0 5000 PWM_POLARITY_NORMAL>;
+            label = "S3 External LED on GPIO 5";
+        };
+    };
 };
 
-&gpio0 {
-	status = "okay";
+&pinctrl {
+    ledc0_default: ledc0_default {
+        group1 {
+            pinmux = <LEDC_CH0_GPIO5>;
+            output-enable;
+        };
+    };
+};
+
+&ledc0 {
+    pinctrl-0 = <&ledc0_default>;
+    pinctrl-names = "default";
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    channel0@0 {
+        reg = <0>;
+        timer = <0>;
+    };
 };
