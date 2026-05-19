@@ -4,30 +4,26 @@
 / {
 	#address-cells = < 0x1 >;          /* in deps\zephyr\dts\common\skeleton.dtsi:10 */
 	#size-cells = < 0x1 >;             /* in deps\zephyr\dts\common\skeleton.dtsi:11 */
-	model = "IOMICO OUR-BOARD PROCPU"; /* in boards\our_board\our_board_procpu.dts:15 */
-	compatible = "espressif,esp32s3";  /* in boards\our_board\our_board_procpu.dts:16 */
+	model = "IOMICO OUR-BOARD PROCPU"; /* in boards\my_board\my_board_procpu.dts:11 */
+	compatible = "espressif,esp32s3";  /* in boards\my_board\my_board_procpu.dts:12 */
 
 	/* node '/chosen' defined in deps\zephyr\dts\common\skeleton.dtsi:13 */
 	chosen {
 		zephyr,canbus = &twai;                    /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:22 */
 		zephyr,entropy = &trng0;                  /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:23 */
 		zephyr,flash-controller = &flash;         /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:24 */
-		zephyr,sram = &sram1;                     /* in boards\our_board\our_board_procpu.dts:26 */
-		zephyr,console = &uart0;                  /* in boards\our_board\our_board_procpu.dts:27 */
-		zephyr,shell-uart = &uart0;               /* in boards\our_board\our_board_procpu.dts:28 */
-		zephyr,flash = &flash0;                   /* in boards\our_board\our_board_procpu.dts:29 */
-		zephyr,code-partition = &slot0_partition; /* in boards\our_board\our_board_procpu.dts:30 */
-		zephyr,bt-hci = &esp32_bt_hci;            /* in boards\our_board\our_board_procpu.dts:31 */
+		zephyr,bt-hci = &esp32_bt_hci;            /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:25 */
+		zephyr,sram = &sram1;                     /* in boards\my_board\my_board_procpu.dts:19 */
+		zephyr,console = &uart0;                  /* in boards\my_board\my_board_procpu.dts:20 */
+		zephyr,shell-uart = &uart0;               /* in boards\my_board\my_board_procpu.dts:21 */
+		zephyr,flash = &flash0;                   /* in boards\my_board\my_board_procpu.dts:22 */
+		zephyr,code-partition = &slot0_partition; /* in boards\my_board\my_board_procpu.dts:23 */
 	};
 
 	/* node '/aliases' defined in deps\zephyr\dts\common\skeleton.dtsi:15 */
 	aliases {
 		die-temp0 = &coretemp; /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:18 */
-		i2c-0 = &i2c0;         /* in boards\our_board\our_board_procpu.dts:19 */
-		watchdog0 = &wdt0;     /* in boards\our_board\our_board_procpu.dts:20 */
-		uart-0 = &uart0;       /* in boards\our_board\our_board_procpu.dts:21 */
-		sw0 = &button0;        /* in boards\our_board\our_board_procpu.dts:22 */
-		pwm-led0 = &pwm_led_0; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:6 */
+		pwm-led0 = &pwm_led_0; /* in boards\my_board\my_board_procpu.dts:15 */
 	};
 
 	/* node '/soc' defined in deps\zephyr\dts\xtensa\xtensa.dtsi:10 */
@@ -262,10 +258,10 @@
 			interrupts = < 0x1b 0x0 0x0 >;       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:224 */
 			interrupt-parent = < &intc >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:225 */
 			clocks = < &clock 0x65 >;            /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:226 */
-			status = "okay";                     /* in boards\our_board\our_board_procpu.dts:50 */
-			current-speed = < 0x1c200 >;         /* in boards\our_board\our_board_procpu.dts:51 */
-			pinctrl-0 = < &uart0_default >;      /* in boards\our_board\our_board_procpu.dts:52 */
-			pinctrl-names = "default";           /* in boards\our_board\our_board_procpu.dts:53 */
+			status = "okay";                     /* in boards\my_board\my_board_procpu.dts:60 */
+			current-speed = < 0x1c200 >;         /* in boards\my_board\my_board_procpu.dts:61 */
+			pinctrl-0 = < &uart0_default >;      /* in boards\my_board\my_board_procpu.dts:62 */
+			pinctrl-names = "default";           /* in boards\my_board\my_board_procpu.dts:63 */
 		};
 
 		/* node '/soc/uart@60010000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:230 */
@@ -308,7 +304,7 @@
 				interrupts = < 0x10 0x0 0x0 >;       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:264 */
 				interrupt-parent = < &intc >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:265 */
 				ngpios = < 0x20 >;                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:271 */
-				status = "okay";                     /* in boards\our_board\our_board_procpu.dts:57 */
+				status = "okay";                     /* in boards\my_board\my_board_procpu.dts:67 */
 				phandle = < 0x5 >;                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:252 */
 			};
 
@@ -321,7 +317,7 @@
 				interrupts = < 0x10 0x0 0x0 >;       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:279 */
 				interrupt-parent = < &intc >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:280 */
 				ngpios = < 0x16 >;                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:281 */
-				status = "okay";                     /* in boards\our_board\our_board_procpu.dts:61 */
+				status = "okay";                     /* in boards\my_board\my_board_procpu.dts:71 */
 				phandle = < 0x6 >;                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:252 */
 			};
 		};
@@ -333,15 +329,6 @@
 			interrupts = < 0x27 0x0 0x0 >;             /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:288 */
 			interrupt-parent = < &intc >;              /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:289 */
 			status = "disabled";                       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:290 */
-			debounce-interval-ms = < 0x1e >;           /* in boards\our_board\our_board_procpu.dts:65 */
-			href-microvolt = < 0x2932e0 >;             /* in boards\our_board\our_board_procpu.dts:66 */
-			lref-microvolt = < 0x7a120 >;              /* in boards\our_board\our_board_procpu.dts:67 */
-			href-atten-microvolt = < 0xf4240 >;        /* in boards\our_board\our_board_procpu.dts:68 */
-			filter-mode = < 0x2 >;                     /* in boards\our_board\our_board_procpu.dts:69 */
-			filter-debounce-cnt = < 0x1 >;             /* in boards\our_board\our_board_procpu.dts:70 */
-			filter-noise-thr = < 0x0 >;                /* in boards\our_board\our_board_procpu.dts:71 */
-			filter-jitter-step = < 0x4 >;              /* in boards\our_board\our_board_procpu.dts:72 */
-			filter-smooth-level = < 0x1 >;             /* in boards\our_board\our_board_procpu.dts:73 */
 		};
 
 		/* node '/soc/i2c@60013000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:293 */
@@ -354,9 +341,6 @@
 			interrupt-parent = < &intc >;       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:299 */
 			clocks = < &clock 0x67 >;           /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:300 */
 			status = "disabled";                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:301 */
-			clock-frequency = < 0x186a0 >;      /* in boards\our_board\our_board_procpu.dts:77 */
-			pinctrl-0 = < &i2c0_default >;      /* in boards\our_board\our_board_procpu.dts:78 */
-			pinctrl-names = "default";          /* in boards\our_board\our_board_procpu.dts:79 */
 		};
 
 		/* node '/soc/i2c@60027000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:304 */
@@ -369,9 +353,6 @@
 			interrupt-parent = < &intc >;       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:310 */
 			clocks = < &clock 0x68 >;           /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:311 */
 			status = "disabled";                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:312 */
-			clock-frequency = < 0x186a0 >;      /* in boards\our_board\our_board_procpu.dts:83 */
-			pinctrl-0 = < &i2c1_default >;      /* in boards\our_board\our_board_procpu.dts:84 */
-			pinctrl-names = "default";          /* in boards\our_board\our_board_procpu.dts:85 */
 		};
 
 		/* node '/soc/i2s@6000f000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:315 */
@@ -389,8 +370,6 @@
 			            "tx";                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:324 */
 			unit = < 0x0 >;                     /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:325 */
 			status = "disabled";                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:326 */
-			pinctrl-0 = < &i2s0_default >;      /* in boards\our_board\our_board_procpu.dts:89 */
-			pinctrl-names = "default";          /* in boards\our_board\our_board_procpu.dts:90 */
 		};
 
 		/* node '/soc/i2s@6002d000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:329 */
@@ -408,8 +387,6 @@
 			            "tx";                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:338 */
 			unit = < 0x1 >;                     /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:339 */
 			status = "disabled";                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:340 */
-			pinctrl-0 = < &i2s1_default >;      /* in boards\our_board\our_board_procpu.dts:94 */
-			pinctrl-names = "default";          /* in boards\our_board\our_board_procpu.dts:95 */
 		};
 
 		/* node '/soc/spi@60024000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:343 */
@@ -420,11 +397,11 @@
 			interrupt-parent = < &intc >;       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:347 */
 			clocks = < &clock 0x73 >;           /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:348 */
 			dma-host = < 0x0 >;                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:349 */
-			#address-cells = < 0x1 >;           /* in boards\our_board\our_board_procpu.dts:99 */
-			#size-cells = < 0x0 >;              /* in boards\our_board\our_board_procpu.dts:100 */
-			status = "okay";                    /* in boards\our_board\our_board_procpu.dts:101 */
-			pinctrl-0 = < &spim2_default >;     /* in boards\our_board\our_board_procpu.dts:102 */
-			pinctrl-names = "default";          /* in boards\our_board\our_board_procpu.dts:103 */
+			#address-cells = < 0x1 >;           /* in boards\my_board\my_board_procpu.dts:75 */
+			#size-cells = < 0x0 >;              /* in boards\my_board\my_board_procpu.dts:76 */
+			status = "okay";                    /* in boards\my_board\my_board_procpu.dts:77 */
+			pinctrl-0 = < &spim2_default >;     /* in boards\my_board\my_board_procpu.dts:78 */
+			pinctrl-names = "default";          /* in boards\my_board\my_board_procpu.dts:79 */
 		};
 
 		/* node '/soc/spi@60025000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:353 */
@@ -435,11 +412,11 @@
 			interrupt-parent = < &intc >;       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:357 */
 			clocks = < &clock 0x74 >;           /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:358 */
 			dma-host = < 0x1 >;                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:359 */
-			#address-cells = < 0x1 >;           /* in boards\our_board\our_board_procpu.dts:107 */
-			#size-cells = < 0x0 >;              /* in boards\our_board\our_board_procpu.dts:108 */
-			status = "okay";                    /* in boards\our_board\our_board_procpu.dts:109 */
-			pinctrl-0 = < &spim3_default >;     /* in boards\our_board\our_board_procpu.dts:110 */
-			pinctrl-names = "default";          /* in boards\our_board\our_board_procpu.dts:111 */
+			#address-cells = < 0x1 >;           /* in boards\my_board\my_board_procpu.dts:83 */
+			#size-cells = < 0x0 >;              /* in boards\my_board\my_board_procpu.dts:84 */
+			status = "okay";                    /* in boards\my_board\my_board_procpu.dts:85 */
+			pinctrl-0 = < &spim3_default >;     /* in boards\my_board\my_board_procpu.dts:86 */
+			pinctrl-names = "default";          /* in boards\my_board\my_board_procpu.dts:87 */
 		};
 
 		/* node '/soc/coretemp@60008800' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:363 */
@@ -480,8 +457,6 @@
 			interrupt-parent = < &intc >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:394 */
 			clocks = < &clock 0x76 >;            /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:395 */
 			status = "disabled";                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:396 */
-			pinctrl-0 = < &twai_default >;       /* in boards\our_board\our_board_procpu.dts:115 */
-			pinctrl-names = "default";           /* in boards\our_board\our_board_procpu.dts:116 */
 		};
 
 		/* node '/soc/lcd_cam@60041000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:399 */
@@ -515,17 +490,18 @@
 		usb_serial: uart@60038000 {
 			compatible = "espressif,esp32-usb-serial"; /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:422 */
 			reg = < 0x60038000 0x1000 >;               /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:423 */
+			status = "disabled";                       /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:424 */
 			interrupts = < 0x60 0x0 0x0 >;             /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:425 */
 			interrupt-parent = < &intc >;              /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:426 */
 			clocks = < &clock 0x66 >;                  /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:427 */
-			status = "disabled";                       /* in boards\our_board\our_board_procpu.dts:46 */
 		};
 
 		/* node '/soc/usb_otg@60080000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:430 */
-		usb_otg: zephyr_udc0: usb_otg@60080000 {
+		usb_otg: usb_otg@60080000 {
 			compatible = "espressif,esp32-usb-otg",
 			             "snps,dwc2";               /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:431 */
 			reg = < 0x60080000 0x40000 >;           /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:432 */
+			status = "disabled";                    /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:433 */
 			interrupts = < 0x26 0x0 0x0 >;          /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:434 */
 			interrupt-parent = < &intc >;           /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:435 */
 			clocks = < &clock 0x66 >;               /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:436 */
@@ -534,7 +510,6 @@
 			ghwcfg1 = < 0x0 >;                      /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:439 */
 			ghwcfg2 = < 0x224dd930 >;               /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:440 */
 			ghwcfg4 = < 0xd3f0a030 >;               /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:441 */
-			status = "okay";                        /* in boards\our_board\our_board_procpu.dts:152 */
 		};
 
 		/* node '/soc/counter@6001f000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:444 */
@@ -546,7 +521,7 @@
 			index = < 0x0 >;                      /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:449 */
 			interrupts = < 0x32 0x0 0x0 >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:450 */
 			interrupt-parent = < &intc >;         /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:451 */
-			status = "disabled";                  /* in boards\our_board\our_board_procpu.dts:120 */
+			status = "disabled";                  /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:452 */
 
 			/* node '/soc/counter@6001f000/counter' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:454 */
 			counter {
@@ -564,7 +539,7 @@
 			index = < 0x1 >;                      /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:465 */
 			interrupts = < 0x33 0x0 0x0 >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:466 */
 			interrupt-parent = < &intc >;         /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:467 */
-			status = "disabled";                  /* in boards\our_board\our_board_procpu.dts:124 */
+			status = "disabled";                  /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:468 */
 
 			/* node '/soc/counter@6001f024/counter' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:470 */
 			counter {
@@ -582,7 +557,7 @@
 			index = < 0x0 >;                      /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:481 */
 			interrupts = < 0x35 0x0 0x0 >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:482 */
 			interrupt-parent = < &intc >;         /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:483 */
-			status = "disabled";                  /* in boards\our_board\our_board_procpu.dts:128 */
+			status = "disabled";                  /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:484 */
 
 			/* node '/soc/counter@60020000/counter' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:486 */
 			counter {
@@ -600,7 +575,6 @@
 			index = < 0x1 >;                      /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:497 */
 			interrupts = < 0x36 0x0 0x0 >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:498 */
 			interrupt-parent = < &intc >;         /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:499 */
-			status = "disabled";                  /* in boards\our_board\our_board_procpu.dts:132 */
 
 			/* node '/soc/counter@60020024/counter' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:501 */
 			counter {
@@ -616,7 +590,7 @@
 			interrupts = < 0x34 0x0 0x0 >;           /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:510 */
 			interrupt-parent = < &intc >;            /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:511 */
 			clocks = < &clock 0x3 >;                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:512 */
-			status = "okay";                         /* in boards\our_board\our_board_procpu.dts:136 */
+			status = "okay";                         /* in boards\my_board\my_board_procpu.dts:91 */
 		};
 
 		/* node '/soc/watchdog@60020048' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:516 */
@@ -634,7 +608,7 @@
 			compatible = "espressif,esp32-trng"; /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:526 */
 			reg = < 0x6003507c 0x4 >;            /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:527 */
 			clocks = < &clock 0x6 >;             /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:528 */
-			status = "okay";                     /* in boards\our_board\our_board_procpu.dts:140 */
+			status = "okay";                     /* in boards\my_board\my_board_procpu.dts:95 */
 		};
 
 		/* node '/soc/ledc@60019000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:532 */
@@ -643,17 +617,17 @@
 			#pwm-cells = < 0x3 >;                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:534 */
 			reg = < 0x60019000 0x1000 >;         /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:535 */
 			clocks = < &clock 0x64 >;            /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:536 */
-			pinctrl-0 = < &ledc0_default >;      /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:28 */
-			pinctrl-names = "default";           /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:29 */
-			status = "okay";                     /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:30 */
-			#address-cells = < 0x1 >;            /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:31 */
-			#size-cells = < 0x0 >;               /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:32 */
-			phandle = < 0x12 >;                  /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:12 */
+			pinctrl-0 = < &ledc0_default >;      /* in boards\my_board\my_board_procpu.dts:47 */
+			pinctrl-names = "default";           /* in boards\my_board\my_board_procpu.dts:48 */
+			status = "okay";                     /* in boards\my_board\my_board_procpu.dts:49 */
+			#address-cells = < 0x1 >;            /* in boards\my_board\my_board_procpu.dts:50 */
+			#size-cells = < 0x0 >;               /* in boards\my_board\my_board_procpu.dts:51 */
+			phandle = < 0xd >;                   /* in boards\my_board\my_board_procpu.dts:39 */
 
-			/* node '/soc/ledc@60019000/channel0@0' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:34 */
+			/* node '/soc/ledc@60019000/channel0@0' defined in boards\my_board\my_board_procpu.dts:53 */
 			channel0@0 {
-				reg = < 0x0 >;   /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:35 */
-				timer = < 0x0 >; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:36 */
+				reg = < 0x0 >;   /* in boards\my_board\my_board_procpu.dts:54 */
+				timer = < 0x0 >; /* in boards\my_board\my_board_procpu.dts:55 */
 			};
 		};
 
@@ -709,7 +683,7 @@
 			dma-channels = < 0xa >;              /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:595 */
 			dma-buf-addr-alignment = < 0x4 >;    /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:596 */
 			status = "disabled";                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:597 */
-			phandle = < 0x9 >;                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:323 */
+			phandle = < 0x7 >;                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:323 */
 		};
 
 		/* node '/soc/sdhc@60028000' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:600 */
@@ -789,7 +763,7 @@
 				power-state-name = "standby";      /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:54 */
 				min-residency-us = < 0x3e8 >;      /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:55 */
 				exit-latency-us = < 0x32 >;        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:56 */
-				phandle = < 0x10 >;                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:36 */
+				phandle = < 0xb >;                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:36 */
 			};
 
 			/* node '/cpus/power-states/deep_sleep' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:59 */
@@ -797,7 +771,7 @@
 				compatible = "zephyr,power-state"; /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:63 */
 				power-state-name = "soft-off";     /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:64 */
 				status = "disabled";               /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:65 */
-				phandle = < 0x11 >;                /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:36 */
+				phandle = < 0xc >;                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:36 */
 			};
 		};
 	};
@@ -805,14 +779,14 @@
 	/* node '/wifi' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:70 */
 	wifi: wifi {
 		compatible = "espressif,esp32-wifi"; /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:71 */
-		status = "okay";                     /* in boards\our_board\our_board_procpu.dts:148 */
+		status = "disabled";                 /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:72 */
 	};
 
 	/* node '/esp32_bt_hci' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:75 */
 	esp32_bt_hci: esp32_bt_hci {
 		compatible = "espressif,esp32-bt-hci"; /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:76 */
 		bt-hci-vs-ext;                         /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:77 */
-		status = "okay";                       /* in boards\our_board\our_board_procpu.dts:144 */
+		status = "disabled";                   /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:78 */
 	};
 
 	/* node '/pin-controller' defined in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:81 */
@@ -820,150 +794,135 @@
 		compatible = "espressif,esp32-pinctrl"; /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:82 */
 		status = "okay";                        /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:83 */
 
-		/* node '/pin-controller/uart0_default' defined in boards\our_board\our_board-pinctrl.dtsi:12 */
-		uart0_default: uart0_default {
-			phandle = < 0x4 >; /* in boards\our_board\our_board_procpu.dts:52 */
+		/* node '/pin-controller/ledc0_default' defined in boards\my_board\my_board-pinctrl.dtsi:8 */
+		ledc0_default: ledc0_default {
+			phandle = < 0xa >; /* in boards\my_board\my_board_procpu.dts:47 */
 
-			/* node '/pin-controller/uart0_default/group1' defined in boards\our_board\our_board-pinctrl.dtsi:13 */
+			/* node '/pin-controller/ledc0_default/group1' defined in boards\my_board\my_board-pinctrl.dtsi:9 */
 			group1 {
-				pinmux = < 0x67feb >; /* in boards\our_board\our_board-pinctrl.dtsi:14 */
-				output-high;          /* in boards\our_board\our_board-pinctrl.dtsi:15 */
-			};
-
-			/* node '/pin-controller/uart0_default/group2' defined in boards\our_board\our_board-pinctrl.dtsi:18 */
-			group2 {
-				pinmux = < 0xff832c >; /* in boards\our_board\our_board-pinctrl.dtsi:19 */
-				bias-pull-up;          /* in boards\our_board\our_board-pinctrl.dtsi:20 */
+				pinmux = < 0x24ffc5 >; /* in boards\my_board\my_board-pinctrl.dtsi:10 */
+				output-enable;         /* in boards\my_board\my_board-pinctrl.dtsi:11 */
 			};
 		};
 
-		/* node '/pin-controller/uart1_default' defined in boards\our_board\our_board-pinctrl.dtsi:24 */
+		/* node '/pin-controller/uart0_default' defined in boards\my_board\my_board-pinctrl.dtsi:15 */
+		uart0_default: uart0_default {
+			phandle = < 0x4 >; /* in boards\my_board\my_board_procpu.dts:62 */
+
+			/* node '/pin-controller/uart0_default/group1' defined in boards\my_board\my_board-pinctrl.dtsi:16 */
+			group1 {
+				pinmux = < 0x67feb >; /* in boards\my_board\my_board-pinctrl.dtsi:17 */
+				output-high;          /* in boards\my_board\my_board-pinctrl.dtsi:18 */
+			};
+
+			/* node '/pin-controller/uart0_default/group2' defined in boards\my_board\my_board-pinctrl.dtsi:21 */
+			group2 {
+				pinmux = < 0xff832c >; /* in boards\my_board\my_board-pinctrl.dtsi:22 */
+				bias-pull-up;          /* in boards\my_board\my_board-pinctrl.dtsi:23 */
+			};
+		};
+
+		/* node '/pin-controller/uart1_default' defined in boards\my_board\my_board-pinctrl.dtsi:27 */
 		uart1_default: uart1_default {
 
-			/* node '/pin-controller/uart1_default/group1' defined in boards\our_board\our_board-pinctrl.dtsi:25 */
+			/* node '/pin-controller/uart1_default/group1' defined in boards\my_board\my_board-pinctrl.dtsi:28 */
 			group1 {
-				pinmux = < 0x7ffd1 >; /* in boards\our_board\our_board-pinctrl.dtsi:26 */
-				output-high;          /* in boards\our_board\our_board-pinctrl.dtsi:27 */
+				pinmux = < 0x7ffd1 >; /* in boards\my_board\my_board-pinctrl.dtsi:29 */
+				output-high;          /* in boards\my_board\my_board-pinctrl.dtsi:30 */
 			};
 
-			/* node '/pin-controller/uart1_default/group2' defined in boards\our_board\our_board-pinctrl.dtsi:30 */
+			/* node '/pin-controller/uart1_default/group2' defined in boards\my_board\my_board-pinctrl.dtsi:33 */
 			group2 {
-				pinmux = < 0xff83d2 >; /* in boards\our_board\our_board-pinctrl.dtsi:31 */
-				bias-pull-up;          /* in boards\our_board\our_board-pinctrl.dtsi:32 */
+				pinmux = < 0xff83d2 >; /* in boards\my_board\my_board-pinctrl.dtsi:34 */
+				bias-pull-up;          /* in boards\my_board\my_board-pinctrl.dtsi:35 */
 			};
 		};
 
-		/* node '/pin-controller/i2c0_default' defined in boards\our_board\our_board-pinctrl.dtsi:36 */
+		/* node '/pin-controller/i2c0_default' defined in boards\my_board\my_board-pinctrl.dtsi:39 */
 		i2c0_default: i2c0_default {
-			phandle = < 0x7 >; /* in boards\our_board\our_board_procpu.dts:78 */
 
-			/* node '/pin-controller/i2c0_default/group1' defined in boards\our_board\our_board-pinctrl.dtsi:37 */
+			/* node '/pin-controller/i2c0_default/group1' defined in boards\my_board\my_board-pinctrl.dtsi:40 */
 			group1 {
 				pinmux = < 0x2d1681 >,
-				         < 0x2c9642 >; /* in boards\our_board\our_board-pinctrl.dtsi:38 */
-				bias-pull-up;          /* in boards\our_board\our_board-pinctrl.dtsi:40 */
-				drive-open-drain;      /* in boards\our_board\our_board-pinctrl.dtsi:41 */
-				output-high;           /* in boards\our_board\our_board-pinctrl.dtsi:42 */
+				         < 0x2c9642 >; /* in boards\my_board\my_board-pinctrl.dtsi:41 */
+				bias-pull-up;          /* in boards\my_board\my_board-pinctrl.dtsi:43 */
+				drive-open-drain;      /* in boards\my_board\my_board-pinctrl.dtsi:44 */
+				output-high;           /* in boards\my_board\my_board-pinctrl.dtsi:45 */
 			};
 		};
 
-		/* node '/pin-controller/i2c1_default' defined in boards\our_board\our_board-pinctrl.dtsi:46 */
+		/* node '/pin-controller/i2c1_default' defined in boards\my_board\my_board-pinctrl.dtsi:49 */
 		i2c1_default: i2c1_default {
-			phandle = < 0x8 >; /* in boards\our_board\our_board_procpu.dts:84 */
 
-			/* node '/pin-controller/i2c1_default/group1' defined in boards\our_board\our_board-pinctrl.dtsi:47 */
+			/* node '/pin-controller/i2c1_default/group1' defined in boards\my_board\my_board-pinctrl.dtsi:50 */
 			group1 {
 				pinmux = < 0x2e1704 >,
-				         < 0x2d96c5 >; /* in boards\our_board\our_board-pinctrl.dtsi:48 */
-				bias-pull-up;          /* in boards\our_board\our_board-pinctrl.dtsi:50 */
-				drive-open-drain;      /* in boards\our_board\our_board-pinctrl.dtsi:51 */
-				output-high;           /* in boards\our_board\our_board-pinctrl.dtsi:52 */
+				         < 0x2d96c5 >; /* in boards\my_board\my_board-pinctrl.dtsi:51 */
+				bias-pull-up;          /* in boards\my_board\my_board-pinctrl.dtsi:53 */
+				drive-open-drain;      /* in boards\my_board\my_board-pinctrl.dtsi:54 */
+				output-high;           /* in boards\my_board\my_board-pinctrl.dtsi:55 */
 			};
 		};
 
-		/* node '/pin-controller/i2s0_default' defined in boards\our_board\our_board-pinctrl.dtsi:56 */
+		/* node '/pin-controller/i2s0_default' defined in boards\my_board\my_board-pinctrl.dtsi:59 */
 		i2s0_default: i2s0_default {
-			phandle = < 0xa >; /* in boards\our_board\our_board_procpu.dts:89 */
 
-			/* node '/pin-controller/i2s0_default/group1' defined in boards\our_board\our_board-pinctrl.dtsi:57 */
+			/* node '/pin-controller/i2s0_default/group1' defined in boards\my_board\my_board-pinctrl.dtsi:60 */
 			group1 {
 				pinmux = < 0xbffea >,
 				         < 0xc0624 >,
 				         < 0xb05a5 >,
 				         < 0xcffe6 >,
-				         < 0xff8669 >; /* in boards\our_board\our_board-pinctrl.dtsi:58 */
+				         < 0xff8669 >; /* in boards\my_board\my_board-pinctrl.dtsi:61 */
 			};
 		};
 
-		/* node '/pin-controller/i2s1_default' defined in boards\our_board\our_board-pinctrl.dtsi:66 */
+		/* node '/pin-controller/i2s1_default' defined in boards\my_board\my_board-pinctrl.dtsi:69 */
 		i2s1_default: i2s1_default {
-			phandle = < 0xb >; /* in boards\our_board\our_board_procpu.dts:94 */
 
-			/* node '/pin-controller/i2s1_default/group1' defined in boards\our_board\our_board-pinctrl.dtsi:67 */
+			/* node '/pin-controller/i2s1_default/group1' defined in boards\my_board\my_board-pinctrl.dtsi:70 */
 			group1 {
 				pinmux = < 0xafff0 >,
 				         < 0xe8744 >,
 				         < 0xe0705 >,
 				         < 0xf7fc6 >,
-				         < 0xff878c >; /* in boards\our_board\our_board-pinctrl.dtsi:68 */
+				         < 0xff878c >; /* in boards\my_board\my_board-pinctrl.dtsi:71 */
 			};
 		};
 
-		/* node '/pin-controller/spim2_default' defined in boards\our_board\our_board-pinctrl.dtsi:76 */
+		/* node '/pin-controller/spim2_default' defined in boards\my_board\my_board-pinctrl.dtsi:79 */
 		spim2_default: spim2_default {
-			phandle = < 0xc >; /* in boards\our_board\our_board_procpu.dts:102 */
+			phandle = < 0x8 >; /* in boards\my_board\my_board_procpu.dts:78 */
 
-			/* node '/pin-controller/spim2_default/group1' defined in boards\our_board\our_board-pinctrl.dtsi:77 */
+			/* node '/pin-controller/spim2_default/group1' defined in boards\my_board\my_board-pinctrl.dtsi:80 */
 			group1 {
 				pinmux = < 0xff998d >,
 				         < 0x32ffcc >,
-				         < 0x377fca >; /* in boards\our_board\our_board-pinctrl.dtsi:78 */
+				         < 0x377fca >; /* in boards\my_board\my_board-pinctrl.dtsi:81 */
 			};
 
-			/* node '/pin-controller/spim2_default/group2' defined in boards\our_board\our_board-pinctrl.dtsi:83 */
+			/* node '/pin-controller/spim2_default/group2' defined in boards\my_board\my_board-pinctrl.dtsi:86 */
 			group2 {
-				pinmux = < 0x33ffcb >; /* in boards\our_board\our_board-pinctrl.dtsi:84 */
-				output-low;            /* in boards\our_board\our_board-pinctrl.dtsi:85 */
+				pinmux = < 0x33ffcb >; /* in boards\my_board\my_board-pinctrl.dtsi:87 */
+				output-low;            /* in boards\my_board\my_board-pinctrl.dtsi:88 */
 			};
 		};
 
-		/* node '/pin-controller/spim3_default' defined in boards\our_board\our_board-pinctrl.dtsi:89 */
+		/* node '/pin-controller/spim3_default' defined in boards\my_board\my_board-pinctrl.dtsi:92 */
 		spim3_default: spim3_default {
-			phandle = < 0xd >; /* in boards\our_board\our_board_procpu.dts:110 */
+			phandle = < 0x9 >; /* in boards\my_board\my_board_procpu.dts:86 */
 
-			/* node '/pin-controller/spim3_default/group1' defined in boards\our_board\our_board-pinctrl.dtsi:90 */
+			/* node '/pin-controller/spim3_default/group1' defined in boards\my_board\my_board-pinctrl.dtsi:93 */
 			group1 {
 				pinmux = < 0xff90e5 >,
 				         < 0x217fe4 >,
-				         < 0x23ffe6 >; /* in boards\our_board\our_board-pinctrl.dtsi:91 */
+				         < 0x23ffe6 >; /* in boards\my_board\my_board-pinctrl.dtsi:94 */
 			};
 
-			/* node '/pin-controller/spim3_default/group2' defined in boards\our_board\our_board-pinctrl.dtsi:96 */
+			/* node '/pin-controller/spim3_default/group2' defined in boards\my_board\my_board-pinctrl.dtsi:99 */
 			group2 {
-				pinmux = < 0x227fe7 >; /* in boards\our_board\our_board-pinctrl.dtsi:97 */
-				output-low;            /* in boards\our_board\our_board-pinctrl.dtsi:98 */
-			};
-		};
-
-		/* node '/pin-controller/twai_default' defined in boards\our_board\our_board-pinctrl.dtsi:102 */
-		twai_default: twai_default {
-			phandle = < 0xe >; /* in boards\our_board\our_board_procpu.dts:115 */
-
-			/* node '/pin-controller/twai_default/group1' defined in boards\our_board\our_board-pinctrl.dtsi:103 */
-			group1 {
-				pinmux = < 0x3a7fc5 >,
-				         < 0xff9d06 >; /* in boards\our_board\our_board-pinctrl.dtsi:104 */
-			};
-		};
-
-		/* node '/pin-controller/ledc0_default' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:19 */
-		ledc0_default: ledc0_default {
-			phandle = < 0xf >; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:28 */
-
-			/* node '/pin-controller/ledc0_default/group1' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:20 */
-			group1 {
-				pinmux = < 0x24ffc5 >; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:21 */
-				output-enable;         /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:22 */
+				pinmux = < 0x227fe7 >; /* in boards\my_board\my_board-pinctrl.dtsi:100 */
+				output-low;            /* in boards\my_board\my_board-pinctrl.dtsi:101 */
 			};
 		};
 	};
@@ -978,26 +937,26 @@
 		phandle = < 0x3 >;                    /* in deps\zephyr\dts\xtensa\espressif\esp32s3\esp32s3_common.dtsi:192 */
 	};
 
-	/* node '/buttons' defined in boards\our_board\our_board_procpu.dts:34 */
+	/* node '/buttons' defined in boards\my_board\my_board_procpu.dts:26 */
 	buttons {
-		compatible = "gpio-keys"; /* in boards\our_board\our_board_procpu.dts:35 */
+		compatible = "gpio-keys"; /* in boards\my_board\my_board_procpu.dts:27 */
 
-		/* node '/buttons/button_0' defined in boards\our_board\our_board_procpu.dts:37 */
+		/* node '/buttons/button_0' defined in boards\my_board\my_board_procpu.dts:29 */
 		button0: button_0 {
-			gpios = < &gpio0 0x0 0x11 >; /* in boards\our_board\our_board_procpu.dts:38 */
-			label = "BOOT Button";       /* in boards\our_board\our_board_procpu.dts:39 */
-			zephyr,code = < 0xb >;       /* in boards\our_board\our_board_procpu.dts:40 */
+			gpios = < &gpio0 0x0 0x11 >; /* in boards\my_board\my_board_procpu.dts:30 */
+			label = "BOOT Button";       /* in boards\my_board\my_board_procpu.dts:31 */
+			zephyr,code = < 0xb >;       /* in boards\my_board\my_board_procpu.dts:32 */
 		};
 	};
 
-	/* node '/pwmleds' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:9 */
+	/* node '/pwmleds' defined in boards\my_board\my_board_procpu.dts:36 */
 	pwmleds {
-		compatible = "pwm-leds"; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:10 */
+		compatible = "pwm-leds"; /* in boards\my_board\my_board_procpu.dts:37 */
 
-		/* node '/pwmleds/pwm_led_0' defined in app\build\zephyr\boards\esp32s3_devkitc.overlay:11 */
+		/* node '/pwmleds/pwm_led_0' defined in boards\my_board\my_board_procpu.dts:38 */
 		pwm_led_0: pwm_led_0 {
-			pwms = < &ledc0 0x0 0x1388 0x0 >;    /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:12 */
-			label = "S3 External LED on GPIO 5"; /* in app\build\zephyr\boards\esp32s3_devkitc.overlay:13 */
+			pwms = < &ledc0 0x0 0x1388 0x0 >;    /* in boards\my_board\my_board_procpu.dts:39 */
+			label = "S3 External LED on GPIO 5"; /* in boards\my_board\my_board_procpu.dts:40 */
 		};
 	};
 };

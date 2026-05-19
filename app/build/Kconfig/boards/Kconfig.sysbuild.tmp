@@ -1,2 +1,2 @@
 # Load Sysbuild board Kconfig descriptions.
-osource "D:/zephyr-course/boards/our_board/Kconfig.sysbuild"
+osource "D:/zephyr-course/boards/my_board/Kconfig.sysbuild"

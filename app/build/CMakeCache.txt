@@ -24,10 +24,10 @@ APPLICATION_CONFIG_DIR:PATH=D:/zephyr-course/app
 APPLICATION_SOURCE_DIR:PATH=D:/zephyr-course/app
 
 //Selected board
-BOARD:STRING=our_board/esp32s3/procpu
+BOARD:STRING=my_board/esp32s3/procpu
 
-//Main board directory for board (our_board)
-BOARD_DIR:PATH=D:/zephyr-course/boards/our_board
+//Main board directory for board (my_board)
+BOARD_DIR:PATH=D:/zephyr-course/boards/my_board
 
 //Path to a program.
 BOSSAC:FILEPATH=BOSSAC-NOTFOUND
@@ -39,7 +39,7 @@ BYPRODUCT_KERNEL_BIN_NAME:FILEPATH=D:/zephyr-course/app/build/zephyr/zephyr.bin
 BYPRODUCT_KERNEL_ELF_NAME:FILEPATH=D:/zephyr-course/app/build/zephyr/zephyr.elf
 
 //Selected board
-CACHED_BOARD:STRING=our_board/esp32s3/procpu
+CACHED_BOARD:STRING=my_board/esp32s3/procpu
 
 //Selected shield
 CACHED_SHIELD:STRING=
@@ -322,7 +322,7 @@ DTC:FILEPATH=C:/ProgramData/chocolatey/bin/dtc.exe
 // parameter. These settings will override the settings in the
 // board's .dts file. Multiple files may be listed, e.g. DTC_OVERLAY_FILE="dts1.overlay
 // dts2.overlay"
-DTC_OVERLAY_FILE:STRING=boards/esp32s3_devkitc.overlay
+DTC_OVERLAY_FILE:STRING=
 
 //Path to a program.
 ESPTOOL_EXECUTABLE:FILEPATH=D:/zephyr-course/.venv/Scripts/esptool.exe
@@ -422,8 +422,8 @@ my_zephyr_app_SOURCE_DIR:STATIC=D:/zephyr-course/app
 # INTERNAL cache entries
 ########################
 
-//List of board directories for board (our_board)
-BOARD_DIRECTORIES:INTERNAL=D:/zephyr-course/boards/our_board
+//List of board directories for board (my_board)
+BOARD_DIRECTORIES:INTERNAL=D:/zephyr-course/boards/my_board
 //DT bindings root directories
 CACHED_DTS_ROOT_BINDINGS:INTERNAL=D:/zephyr-course/deps/zephyr/dts/bindings
 //ADVANCED property for variable: CMAKE_ADDR2LINE
@@ -541,7 +541,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=86
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=87
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

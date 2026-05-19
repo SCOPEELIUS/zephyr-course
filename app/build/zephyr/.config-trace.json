@@ -11,17 +11,6 @@
     ]
   ],
   [
-    "CONFIG_DT_HAS_ESPRESSIF_ESP32_BT_HCI_ENABLED",
-    "n",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      2703
-    ]
-  ],
-  [
     "CONFIG_DT_HAS_ESPRESSIF_ESP32_CLOCK_ENABLED",
     "n",
     "bool",
@@ -143,6 +132,17 @@
     ]
   ],
   [
+    "CONFIG_DT_HAS_ESPRESSIF_ESP32_TIMER_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
+      2863
+    ]
+  ],
+  [
     "CONFIG_DT_HAS_ESPRESSIF_ESP32_TRNG_ENABLED",
     "n",
     "bool",
@@ -165,17 +165,6 @@
     ]
   ],
   [
-    "CONFIG_DT_HAS_ESPRESSIF_ESP32_USB_OTG_ENABLED",
-    "n",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      2888
-    ]
-  ],
-  [
     "CONFIG_DT_HAS_ESPRESSIF_ESP32_WATCHDOG_ENABLED",
     "n",
     "bool",
@@ -184,17 +173,6 @@
     [
       "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
       2898
-    ]
-  ],
-  [
-    "CONFIG_DT_HAS_ESPRESSIF_ESP32_WIFI_ENABLED",
-    "n",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      2903
     ]
   ],
   [
@@ -250,17 +228,6 @@
     [
       "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
       9518
-    ]
-  ],
-  [
-    "CONFIG_DT_HAS_SNPS_DWC2_ENABLED",
-    "n",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      12403
     ]
   ],
   [
@@ -357,8 +324,8 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
-      4
+      "D:/zephyr-course/boards/my_board/my_board_procpu_defconfig",
+      3
     ]
   ],
   [
@@ -408,6 +375,17 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_BOARD_MY_BOARD",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig.v2",
+      9
+    ]
   ],
   [
     "CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC",
@@ -789,8 +767,8 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
-      6
+      "D:/zephyr-course/boards/my_board/my_board_procpu_defconfig",
+      5
     ]
   ],
   [
@@ -973,8 +951,8 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
-      3
+      "D:/zephyr-course/boards/my_board/my_board_procpu_defconfig",
+      2
     ]
   ],
   [
@@ -4893,7 +4871,7 @@
     "CONFIG_BOARD",
     "n",
     "string",
-    "our_board",
+    "my_board",
     "default",
     [
       "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig",
@@ -4915,7 +4893,7 @@
     "CONFIG_BOARD_TARGET",
     "n",
     "string",
-    "our_board/esp32s3/procpu",
+    "my_board/esp32s3/procpu",
     "default",
     [
       "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig",
@@ -4931,18 +4909,7 @@
     null
   ],
   [
-    "CONFIG_BOARD_OUR_BOARD",
-    "n",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig.v2",
-      9
-    ]
-  ],
-  [
-    "CONFIG_BOARD_OUR_BOARD_ESP32S3_PROCPU",
+    "CONFIG_BOARD_MY_BOARD_ESP32S3_PROCPU",
     "n",
     "bool",
     "y",
@@ -4970,8 +4937,8 @@
     "4096",
     "default",
     [
-      "D:/zephyr-course/boards/our_board/Kconfig",
-      6
+      "D:/zephyr-course/boards/my_board/Kconfig",
+      3
     ]
   ],
   [
@@ -5045,7 +5012,7 @@
     "y",
     "select",
     [
-      "BOARD_OUR_BOARD"
+      "BOARD_MY_BOARD"
     ]
   ],
   [
@@ -5065,7 +5032,7 @@
     "y",
     "select",
     [
-      "BOARD_OUR_BOARD && BOARD_OUR_BOARD_ESP32S3_PROCPU"
+      "BOARD_MY_BOARD && BOARD_MY_BOARD_ESP32S3_PROCPU"
     ]
   ],
   [
@@ -6997,9 +6964,11 @@
     "CONFIG_BOARD_EARLY_INIT_HOOK",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "BOARD_MY_BOARD"
+    ]
   ],
   [
     "CONFIG_BOARD_LATE_INIT_HOOK",
@@ -7258,8 +7227,8 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
-      5
+      "D:/zephyr-course/boards/my_board/my_board_procpu_defconfig",
+      4
     ]
   ],
   [

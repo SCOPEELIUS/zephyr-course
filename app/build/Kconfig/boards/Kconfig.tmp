@@ -1,2 +1,2 @@
 # Load Zephyr board Kconfig descriptions.
-osource "D:/zephyr-course/boards/our_board/Kconfig"
+osource "D:/zephyr-course/boards/my_board/Kconfig"

@@ -11,7 +11,7 @@ debug-runner: openocd
 
 # Common runner configuration values.
 config:
-  board_dir: D:/zephyr-course/boards/our_board
+  board_dir: D:/zephyr-course/boards/my_board
   # Build outputs:
   elf_file: zephyr.elf
   bin_file: zephyr.bin
