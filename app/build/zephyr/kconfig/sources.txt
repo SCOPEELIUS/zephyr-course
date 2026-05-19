@@ -7,13 +7,13 @@ D:\zephyr-course\app\build\Kconfig\Kconfig.shield.defconfig
 D:\zephyr-course\app\build\Kconfig\arch\Kconfig
 D:\zephyr-course\app\build\Kconfig\boards\Kconfig
 D:\zephyr-course\app\build\Kconfig\boards\Kconfig.defconfig
-D:\zephyr-course\app\build\Kconfig\boards\Kconfig.my_board
+D:\zephyr-course\app\build\Kconfig\boards\Kconfig.our_board
 D:\zephyr-course\app\build\Kconfig\soc\Kconfig
 D:\zephyr-course\app\build\Kconfig\soc\Kconfig.defconfig
 D:\zephyr-course\app\build\Kconfig\soc\Kconfig.soc
-D:\zephyr-course\boards\my_board\Kconfig
-D:\zephyr-course\boards\my_board\Kconfig.defconfig
-D:\zephyr-course\boards\my_board\Kconfig.my_board
+D:\zephyr-course\app\drivers\our_driver\Kconfig
+D:\zephyr-course\boards\our_board\Kconfig
+D:\zephyr-course\boards\our_board\Kconfig.our_board
 D:\zephyr-course\deps\modules\hal\espressif\components\soc\esp32\include\soc\Kconfig.soc_caps.in
 D:\zephyr-course\deps\modules\hal\espressif\components\soc\esp32c2\include\soc\Kconfig.soc_caps.in
 D:\zephyr-course\deps\modules\hal\espressif\components\soc\esp32c3\include\soc\Kconfig.soc_caps.in

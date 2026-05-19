@@ -96,9 +96,6 @@ D:/zephyr-course/app/build/zephyr/soc/soc/esp32s3/esp32s3/CMakeFiles/edit_cache.
 D:/zephyr-course/app/build/zephyr/soc/soc/esp32s3/esp32s3/CMakeFiles/rebuild_cache.dir
 D:/zephyr-course/app/build/zephyr/boards/CMakeFiles/edit_cache.dir
 D:/zephyr-course/app/build/zephyr/boards/CMakeFiles/rebuild_cache.dir
-D:/zephyr-course/app/build/zephyr/boards/boards/xtensa/my_board/CMakeFiles/..__..__boards__my_board.dir
-D:/zephyr-course/app/build/zephyr/boards/boards/xtensa/my_board/CMakeFiles/edit_cache.dir
-D:/zephyr-course/app/build/zephyr/boards/boards/xtensa/my_board/CMakeFiles/rebuild_cache.dir
 D:/zephyr-course/app/build/zephyr/boards/shields/CMakeFiles/edit_cache.dir
 D:/zephyr-course/app/build/zephyr/boards/shields/CMakeFiles/rebuild_cache.dir
 D:/zephyr-course/app/build/zephyr/subsys/CMakeFiles/edit_cache.dir
@@ -238,3 +235,5 @@ D:/zephyr-course/app/build/zephyr/cmake/reports/CMakeFiles/footprint.dir
 D:/zephyr-course/app/build/zephyr/cmake/reports/CMakeFiles/dashboard.dir
 D:/zephyr-course/app/build/zephyr/cmake/reports/CMakeFiles/edit_cache.dir
 D:/zephyr-course/app/build/zephyr/cmake/reports/CMakeFiles/rebuild_cache.dir
+D:/zephyr-course/app/build/drivers/our_driver/CMakeFiles/edit_cache.dir
+D:/zephyr-course/app/build/drivers/our_driver/CMakeFiles/rebuild_cache.dir

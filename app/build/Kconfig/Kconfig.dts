@@ -9362,6 +9362,11 @@ DT_COMPAT_ORISETECH_OTM8009A := orisetech,otm8009a
 config DT_HAS_ORISETECH_OTM8009A_ENABLED
 	def_bool $(dt_compat_enabled,$(DT_COMPAT_ORISETECH_OTM8009A))
 
+DT_COMPAT_OUR_DRIVER := our,driver
+
+config DT_HAS_OUR_DRIVER_ENABLED
+	def_bool $(dt_compat_enabled,$(DT_COMPAT_OUR_DRIVER))
+
 DT_COMPAT_OVTI_OV2640 := ovti,ov2640
 
 config DT_HAS_OVTI_OV2640_ENABLED

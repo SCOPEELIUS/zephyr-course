@@ -1,5 +1,5 @@
 empty_file.o: D:/zephyr-course/deps/zephyr/misc/empty_file.c \
- D:/zephyr-course/boards/my_board/my_board_procpu.dts \
+ D:/zephyr-course/boards/our_board/our_board_procpu.dts \
  D:/zephyr-course/deps/zephyr/dts/xtensa/espressif/esp32s3/esp32s3_wroom_n8.dtsi \
  D:/zephyr-course/deps/zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi \
  D:/zephyr-course/deps/zephyr/dts/common/mem.h \
@@ -23,9 +23,10 @@ empty_file.o: D:/zephyr-course/deps/zephyr/misc/empty_file.c \
  D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pinctrl/esp32s3-pinctrl.h \
  D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/input/input-event-codes.h \
  D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/input/esp32-touch-sensor-input.h \
- D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pwm/pwm.h \
  D:/zephyr-course/deps/zephyr/dts/vendor/espressif/partitions_0x0_amp.dtsi \
  D:/zephyr-course/deps/zephyr/dts/vendor/espressif/partitions_0x0_amp_4M.dtsi \
- D:/zephyr-course/boards/my_board/my_board-pinctrl.dtsi \
+ D:/zephyr-course/boards/our_board/our_board-pinctrl.dtsi \
  D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pinctrl/esp-pinctrl-common.h \
- D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pinctrl/esp32s3-gpio-sigmap.h
+ D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pinctrl/esp32s3-gpio-sigmap.h \
+ boards/esp32s3_devkitc.overlay \
+ D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pwm/pwm.h

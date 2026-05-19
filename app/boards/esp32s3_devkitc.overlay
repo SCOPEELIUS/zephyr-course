@@ -4,14 +4,22 @@
 / {
     aliases {
         pwm-led0 = &pwm_led_0;
+        custom-driver = &my_driver;
     };
-
+    
     pwmleds {
         compatible = "pwm-leds";
         pwm_led_0: pwm_led_0 {
             pwms = <&ledc0 0 5000 PWM_POLARITY_NORMAL>;
             label = "S3 External LED on GPIO 5";
         };
+    };
+    
+    my_driver: my_driver {
+        compatible = "our,driver";
+        status = "okay";
+        /* Map GPIO 5 so the custom sensor driver can manipulate it */
+        gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
     };
 };
 
@@ -30,7 +38,7 @@
     status = "okay";
     #address-cells = <1>;
     #size-cells = <0>;
-
+    
     channel0@0 {
         reg = <0>;
         timer = <0>;

@@ -1,5 +1,92 @@
 [
   [
+    "CONFIG_MY_LED_SUBSYSTEM",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      7
+    ]
+  ],
+  [
+    "CONFIG_BLINK_TIME_250MS",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BLINK_TIME_500MS",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    null
+  ],
+  [
+    "CONFIG_BLINK_TIME_1S",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BLINK_TIME_2S",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BLINK_TIME_MS",
+    "y",
+    "int",
+    "500",
+    "default",
+    [
+      "D:/zephyr-course/app/Kconfig",
+      27
+    ]
+  ],
+  [
+    "CONFIG_LED_ADVANCED_SETTINGS",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      9
+    ]
+  ],
+  [
+    "CONFIG_LED_BRIGHTNESS",
+    "y",
+    "int",
+    "85",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      10
+    ]
+  ],
+  [
+    "CONFIG_LED_FADE_MS",
+    "y",
+    "int",
+    "1000",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      11
+    ]
+  ],
+  [
     "CONFIG_DT_HAS_ESPRESSIF_ESP32_AES_ENABLED",
     "n",
     "bool",
@@ -8,6 +95,17 @@
     [
       "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
       2698
+    ]
+  ],
+  [
+    "CONFIG_DT_HAS_ESPRESSIF_ESP32_BT_HCI_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
+      2703
     ]
   ],
   [
@@ -132,17 +230,6 @@
     ]
   ],
   [
-    "CONFIG_DT_HAS_ESPRESSIF_ESP32_TIMER_ENABLED",
-    "n",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      2863
-    ]
-  ],
-  [
     "CONFIG_DT_HAS_ESPRESSIF_ESP32_TRNG_ENABLED",
     "n",
     "bool",
@@ -165,6 +252,17 @@
     ]
   ],
   [
+    "CONFIG_DT_HAS_ESPRESSIF_ESP32_USB_OTG_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
+      2888
+    ]
+  ],
+  [
     "CONFIG_DT_HAS_ESPRESSIF_ESP32_WATCHDOG_ENABLED",
     "n",
     "bool",
@@ -173,6 +271,17 @@
     [
       "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
       2898
+    ]
+  ],
+  [
+    "CONFIG_DT_HAS_ESPRESSIF_ESP32_WIFI_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
+      2903
     ]
   ],
   [
@@ -220,6 +329,17 @@
     ]
   ],
   [
+    "CONFIG_DT_HAS_OUR_DRIVER_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
+      9368
+    ]
+  ],
+  [
     "CONFIG_DT_HAS_PWM_LEDS_ENABLED",
     "n",
     "bool",
@@ -227,7 +347,18 @@
     "default",
     [
       "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      9518
+      9523
+    ]
+  ],
+  [
+    "CONFIG_DT_HAS_SNPS_DWC2_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
+      12408
     ]
   ],
   [
@@ -238,7 +369,7 @@
     "default",
     [
       "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      12438
+      12443
     ]
   ],
   [
@@ -249,7 +380,7 @@
     "default",
     [
       "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      16418
+      16423
     ]
   ],
   [
@@ -260,7 +391,7 @@
     "default",
     [
       "D:/zephyr-course/app/build/Kconfig/Kconfig.dts",
-      16528
+      16533
     ]
   ],
   [
@@ -324,8 +455,8 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/boards/my_board/my_board_procpu_defconfig",
-      3
+      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
+      4
     ]
   ],
   [
@@ -375,17 +506,6 @@
     null,
     "unset",
     null
-  ],
-  [
-    "CONFIG_BOARD_MY_BOARD",
-    "n",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig.v2",
-      9
-    ]
   ],
   [
     "CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC",
@@ -767,8 +887,8 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/boards/my_board/my_board_procpu_defconfig",
-      5
+      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
+      6
     ]
   ],
   [
@@ -951,8 +1071,8 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/boards/my_board/my_board_procpu_defconfig",
-      2
+      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
+      3
     ]
   ],
   [
@@ -4871,7 +4991,7 @@
     "CONFIG_BOARD",
     "n",
     "string",
-    "my_board",
+    "our_board",
     "default",
     [
       "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig",
@@ -4893,7 +5013,7 @@
     "CONFIG_BOARD_TARGET",
     "n",
     "string",
-    "my_board/esp32s3/procpu",
+    "our_board/esp32s3/procpu",
     "default",
     [
       "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig",
@@ -4909,7 +5029,18 @@
     null
   ],
   [
-    "CONFIG_BOARD_MY_BOARD_ESP32S3_PROCPU",
+    "CONFIG_BOARD_OUR_BOARD",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig.v2",
+      9
+    ]
+  ],
+  [
+    "CONFIG_BOARD_OUR_BOARD_ESP32S3_PROCPU",
     "n",
     "bool",
     "y",
@@ -4937,8 +5068,8 @@
     "4096",
     "default",
     [
-      "D:/zephyr-course/boards/my_board/Kconfig",
-      3
+      "D:/zephyr-course/boards/our_board/Kconfig",
+      6
     ]
   ],
   [
@@ -5012,7 +5143,7 @@
     "y",
     "select",
     [
-      "BOARD_MY_BOARD"
+      "BOARD_OUR_BOARD"
     ]
   ],
   [
@@ -5032,7 +5163,7 @@
     "y",
     "select",
     [
-      "BOARD_MY_BOARD && BOARD_MY_BOARD_ESP32S3_PROCPU"
+      "BOARD_OUR_BOARD && BOARD_OUR_BOARD_ESP32S3_PROCPU"
     ]
   ],
   [
@@ -6964,11 +7095,9 @@
     "CONFIG_BOARD_EARLY_INIT_HOOK",
     "y",
     "bool",
-    "y",
-    "select",
-    [
-      "BOARD_MY_BOARD"
-    ]
+    null,
+    "unset",
+    null
   ],
   [
     "CONFIG_BOARD_LATE_INIT_HOOK",
@@ -7227,8 +7356,8 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/boards/my_board/my_board_procpu_defconfig",
-      4
+      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
+      5
     ]
   ],
   [
@@ -11517,90 +11646,14 @@
     ]
   ],
   [
-    "CONFIG_MY_LED_SUBSYSTEM",
+    "CONFIG_OUR_DRIVER",
     "y",
     "bool",
     "y",
     "assign",
     [
       "D:/zephyr-course/app/prj.conf",
-      7
-    ]
-  ],
-  [
-    "CONFIG_BLINK_TIME_250MS",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_BLINK_TIME_500MS",
-    "y",
-    "bool",
-    "y",
-    "assign",
-    null
-  ],
-  [
-    "CONFIG_BLINK_TIME_1S",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_BLINK_TIME_2S",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_BLINK_TIME_MS",
-    "y",
-    "int",
-    "500",
-    "default",
-    [
-      "D:/zephyr-course/app/Kconfig",
-      29
-    ]
-  ],
-  [
-    "CONFIG_LED_ADVANCED_SETTINGS",
-    "y",
-    "bool",
-    "y",
-    "assign",
-    [
-      "D:/zephyr-course/app/prj.conf",
-      9
-    ]
-  ],
-  [
-    "CONFIG_LED_BRIGHTNESS",
-    "y",
-    "int",
-    "85",
-    "assign",
-    [
-      "D:/zephyr-course/app/prj.conf",
-      10
-    ]
-  ],
-  [
-    "CONFIG_LED_FADE_MS",
-    "y",
-    "int",
-    "1000",
-    "assign",
-    [
-      "D:/zephyr-course/app/prj.conf",
-      11
+      13
     ]
   ]
 ]

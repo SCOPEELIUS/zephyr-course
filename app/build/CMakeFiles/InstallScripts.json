@@ -28,7 +28,6 @@
 		"D:/zephyr-course/app/build/zephyr/soc/soc/esp32s3/common/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/soc/soc/esp32s3/esp32s3/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/boards/cmake_install.cmake",
-		"D:/zephyr-course/app/build/zephyr/boards/boards/xtensa/my_board/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/boards/shields/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/subsys/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/subsys/canbus/cmake_install.cmake",
@@ -87,7 +86,8 @@
 		"D:/zephyr-course/app/build/zephyr/kernel/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/cmake/flash/cmake_install.cmake",
 		"D:/zephyr-course/app/build/zephyr/cmake/usage/cmake_install.cmake",
-		"D:/zephyr-course/app/build/zephyr/cmake/reports/cmake_install.cmake"
+		"D:/zephyr-course/app/build/zephyr/cmake/reports/cmake_install.cmake",
+		"D:/zephyr-course/app/build/drivers/our_driver/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

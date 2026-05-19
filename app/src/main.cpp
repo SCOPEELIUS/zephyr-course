@@ -1,49 +1,35 @@
-#include <zephyr/kernel.h>
+#include "zephyr/device.h"
 #include <zephyr/drivers/pwm.h>
+#include <zephyr/drivers/sensor.h>
+#include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 
-static const struct pwm_dt_spec led_pwm = PWM_DT_SPEC_GET(DT_ALIAS(pwm_led0));
+const struct device *my_driver_dev = DEVICE_DT_GET(DT_ALIAS(custom_driver));
 
 int main(void) {
-	if (!IS_ENABLED(CONFIG_MY_LED_SUBSYSTEM)) {
-		return 0;
-	}
+  if (!IS_ENABLED(CONFIG_MY_LED_SUBSYSTEM)) {
+    return 0;
+  }
 
-	if (!pwm_is_ready_dt(&led_pwm)) {
-		LOG_ERR("PWM device on GPIO 5 not ready!");
-		return 0;
-	}
+  if (!device_is_ready(my_driver_dev)) {
+    LOG_ERR("Custom device not found or not ready");
+	return -ENODEV;
+  } else {
+    LOG_INF("Custom device found. Executing driver test...");
+  }
 
-	const uint32_t brightness = CONFIG_LED_BRIGHTNESS;
-	const uint32_t fade_ms = CONFIG_LED_FADE_MS;
-	const uint32_t interval = CONFIG_BLINK_TIME_MS;
+  while (1) {
+    struct sensor_value val;
 
-	LOG_INF("LED Subsystem Live: %d%% brightness, %dms fade, %dms interval", 
-			brightness, fade_ms, interval);
+    sensor_sample_fetch(my_driver_dev);
+    LOG_INF("Called sample_fetch -> LED should be ON");
+    k_msleep(2000);
 
-	while (1) {
-		if (fade_ms > 0) {
-			for (int i = 0; i <= brightness; i++) {
-				pwm_set_pulse_dt(&led_pwm, (led_pwm.period * i) / 100);
-				k_msleep(fade_ms / brightness);
-			}
-		} else {
-			pwm_set_pulse_dt(&led_pwm, (led_pwm.period * brightness) / 100);
-		}
-
-		k_msleep(interval);
-		if (fade_ms > 0) {
-			for (int i = brightness; i >= 0; i--) {
-				pwm_set_pulse_dt(&led_pwm, (led_pwm.period * i) / 100);
-				k_msleep(fade_ms / brightness);
-			}
-		} else {
-			pwm_set_pulse_dt(&led_pwm, 0);
-		}
-
-		k_msleep(interval);
-	}
-	return 0;
+    int ret = sensor_channel_get(my_driver_dev, SENSOR_CHAN_ALL, &val);
+    LOG_INF("Called channel_get (returned %d) -> LED should be OFF", ret);
+    k_msleep(2000);
+  }
+  return 0;
 }
