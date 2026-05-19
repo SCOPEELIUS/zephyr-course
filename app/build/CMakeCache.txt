@@ -24,10 +24,10 @@ APPLICATION_CONFIG_DIR:PATH=D:/zephyr-course/app
 APPLICATION_SOURCE_DIR:PATH=D:/zephyr-course/app
 
 //Selected board
-BOARD:STRING=esp32s3_devkitc/esp32s3/procpu
+BOARD:STRING=our_board/esp32s3/procpu
 
-//Main board directory for board (esp32s3_devkitc)
-BOARD_DIR:PATH=D:/zephyr-course/deps/zephyr/boards/espressif/esp32s3_devkitc
+//Main board directory for board (our_board)
+BOARD_DIR:PATH=D:/zephyr-course/app/boards/our_board
 
 //Path to a program.
 BOSSAC:FILEPATH=BOSSAC-NOTFOUND
@@ -39,7 +39,7 @@ BYPRODUCT_KERNEL_BIN_NAME:FILEPATH=D:/zephyr-course/app/build/zephyr/zephyr.bin
 BYPRODUCT_KERNEL_ELF_NAME:FILEPATH=D:/zephyr-course/app/build/zephyr/zephyr.elf
 
 //Selected board
-CACHED_BOARD:STRING=esp32s3_devkitc/esp32s3/procpu
+CACHED_BOARD:STRING=our_board/esp32s3/procpu
 
 //Selected shield
 CACHED_SHIELD:STRING=
@@ -422,8 +422,8 @@ my_zephyr_app_SOURCE_DIR:STATIC=D:/zephyr-course/app
 # INTERNAL cache entries
 ########################
 
-//List of board directories for board (esp32s3_devkitc)
-BOARD_DIRECTORIES:INTERNAL=D:/zephyr-course/deps/zephyr/boards/espressif/esp32s3_devkitc
+//List of board directories for board (our_board)
+BOARD_DIRECTORIES:INTERNAL=D:/zephyr-course/app/boards/our_board
 //DT bindings root directories
 CACHED_DTS_ROOT_BINDINGS:INTERNAL=D:/zephyr-course/deps/zephyr/dts/bindings
 //ADVANCED property for variable: CMAKE_ADDR2LINE

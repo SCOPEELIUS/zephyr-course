@@ -357,7 +357,7 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/deps/zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu_defconfig",
+      "D:/zephyr-course/app/boards/our_board/our_board_procpu_defconfig",
       4
     ]
   ],
@@ -789,7 +789,7 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/deps/zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu_defconfig",
+      "D:/zephyr-course/app/boards/our_board/our_board_procpu_defconfig",
       6
     ]
   ],
@@ -973,7 +973,7 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/deps/zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu_defconfig",
+      "D:/zephyr-course/app/boards/our_board/our_board_procpu_defconfig",
       3
     ]
   ],
@@ -4893,7 +4893,7 @@
     "CONFIG_BOARD",
     "n",
     "string",
-    "esp32s3_devkitc",
+    "our_board",
     "default",
     [
       "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig",
@@ -4915,7 +4915,7 @@
     "CONFIG_BOARD_TARGET",
     "n",
     "string",
-    "esp32s3_devkitc/esp32s3/procpu",
+    "our_board/esp32s3/procpu",
     "default",
     [
       "D:\\zephyr-course\\deps\\zephyr\\boards\\Kconfig",
@@ -4931,7 +4931,7 @@
     null
   ],
   [
-    "CONFIG_BOARD_ESP32S3_DEVKITC",
+    "CONFIG_BOARD_OUR_BOARD",
     "n",
     "bool",
     "y",
@@ -4942,7 +4942,7 @@
     ]
   ],
   [
-    "CONFIG_BOARD_ESP32S3_DEVKITC_ESP32S3_PROCPU",
+    "CONFIG_BOARD_OUR_BOARD_ESP32S3_PROCPU",
     "n",
     "bool",
     "y",
@@ -4970,7 +4970,7 @@
     "4096",
     "default",
     [
-      "D:/zephyr-course/deps/zephyr/boards/espressif/esp32s3_devkitc/Kconfig",
+      "D:/zephyr-course/app/boards/our_board/Kconfig",
       6
     ]
   ],
@@ -5045,7 +5045,7 @@
     "y",
     "select",
     [
-      "BOARD_ESP32S3_DEVKITC"
+      "BOARD_OUR_BOARD"
     ]
   ],
   [
@@ -5065,7 +5065,7 @@
     "y",
     "select",
     [
-      "BOARD_ESP32S3_DEVKITC && BOARD_ESP32S3_DEVKITC_ESP32S3_PROCPU"
+      "BOARD_OUR_BOARD && BOARD_OUR_BOARD_ESP32S3_PROCPU"
     ]
   ],
   [
@@ -7258,7 +7258,7 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/deps/zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu_defconfig",
+      "D:/zephyr-course/app/boards/our_board/our_board_procpu_defconfig",
       5
     ]
   ],

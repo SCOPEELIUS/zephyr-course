@@ -1,11 +1,15 @@
 C:\Users\Lenovo\zephyr-sdk-1.0.1\cmake\zephyr\Kconfig
 D:\zephyr-course\app\Kconfig
+D:\zephyr-course\app\boards\our_board\Kconfig
+D:\zephyr-course\app\boards\our_board\Kconfig.our_board
 D:\zephyr-course\app\build\Kconfig\Kconfig.dts
 D:\zephyr-course\app\build\Kconfig\Kconfig.modules
+D:\zephyr-course\app\build\Kconfig\Kconfig.shield
+D:\zephyr-course\app\build\Kconfig\Kconfig.shield.defconfig
 D:\zephyr-course\app\build\Kconfig\arch\Kconfig
 D:\zephyr-course\app\build\Kconfig\boards\Kconfig
 D:\zephyr-course\app\build\Kconfig\boards\Kconfig.defconfig
-D:\zephyr-course\app\build\Kconfig\boards\Kconfig.esp32s3_devkitc
+D:\zephyr-course\app\build\Kconfig\boards\Kconfig.our_board
 D:\zephyr-course\app\build\Kconfig\soc\Kconfig
 D:\zephyr-course\app\build\Kconfig\soc\Kconfig.defconfig
 D:\zephyr-course\app\build\Kconfig\soc\Kconfig.soc
@@ -58,8 +62,6 @@ D:\zephyr-course\deps\zephyr\arch\xtensa\Kconfig
 D:\zephyr-course\deps\zephyr\boards\Kconfig
 D:\zephyr-course\deps\zephyr\boards\Kconfig.v2
 D:\zephyr-course\deps\zephyr\boards\Kconfig.whisper
-D:\zephyr-course\deps\zephyr\boards\espressif\esp32s3_devkitc\Kconfig
-D:\zephyr-course\deps\zephyr\boards\espressif\esp32s3_devkitc\Kconfig.esp32s3_devkitc
 D:\zephyr-course\deps\zephyr\boards\shields\abrobot_esp32c3_oled\Kconfig.shield
 D:\zephyr-course\deps\zephyr\boards\shields\adafruit_24lc32\Kconfig.shield
 D:\zephyr-course\deps\zephyr\boards\shields\adafruit_2_8_tft_touch_v2\Kconfig.defconfig
