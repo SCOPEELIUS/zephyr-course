@@ -4,17 +4,15 @@
 
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 
-/* Link to the 'pwm-led0' alias on GPIO 45 */
 static const struct pwm_dt_spec led_pwm = PWM_DT_SPEC_GET(DT_ALIAS(pwm_led0));
 
 int main(void) {
-	/* The top-level toggle remains as a safety guard */
 	if (!IS_ENABLED(CONFIG_MY_LED_SUBSYSTEM)) {
 		return 0;
 	}
 
 	if (!pwm_is_ready_dt(&led_pwm)) {
-		LOG_ERR("PWM device on GPIO 45 not ready!");
+		LOG_ERR("PWM device on GPIO 5 not ready!");
 		return 0;
 	}
 
@@ -26,7 +24,6 @@ int main(void) {
 			brightness, fade_ms, interval);
 
 	while (1) {
-		/* --- Fade In --- */
 		if (fade_ms > 0) {
 			for (int i = 0; i <= brightness; i++) {
 				pwm_set_pulse_dt(&led_pwm, (led_pwm.period * i) / 100);
@@ -37,8 +34,6 @@ int main(void) {
 		}
 
 		k_msleep(interval);
-
-		/* --- Fade Out --- */
 		if (fade_ms > 0) {
 			for (int i = brightness; i >= 0; i--) {
 				pwm_set_pulse_dt(&led_pwm, (led_pwm.period * i) / 100);

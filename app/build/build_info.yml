@@ -5,14 +5,14 @@ cmake:
   board:
     name: 'our_board'
     path:
-     - 'D:/zephyr-course/app/boards/our_board'
+     - 'D:/zephyr-course/boards/our_board'
     qualifiers: 'esp32s3/procpu'
     revision: ''
   devicetree:
     bindings-dirs:
      - 'D:/zephyr-course/deps/zephyr/dts/bindings'
     files:
-     - 'D:/zephyr-course/app/boards/our_board/our_board_procpu.dts'
+     - 'D:/zephyr-course/boards/our_board/our_board_procpu.dts'
      - 'boards/esp32s3_devkitc.overlay'
     include-dirs:
      - 'D:/zephyr-course/deps/modules/hal/stm32/dts'
@@ -34,7 +34,7 @@ cmake:
      - 'boards/esp32s3_devkitc.overlay'
   kconfig:
     files:
-     - 'D:/zephyr-course/app/boards/our_board/our_board_procpu_defconfig'
+     - 'D:/zephyr-course/boards/our_board/our_board_procpu_defconfig'
      - 'D:/zephyr-course/app/prj.conf'
     user-files:
      - 'D:/zephyr-course/app/prj.conf'

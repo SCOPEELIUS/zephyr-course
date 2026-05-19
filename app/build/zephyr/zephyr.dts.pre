@@ -1,7 +1,7 @@
 # 0 "D:/zephyr-course/deps/zephyr/misc/empty_file.c"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "D:/zephyr-course/app/boards/our_board/our_board_procpu.dts" 1
+# 1 "D:/zephyr-course/boards/our_board/our_board_procpu.dts" 1
 
 
 
@@ -723,11 +723,11 @@
 &flash0 {
  reg = <0x0 (((8) * 1024) * 1024)>;
 };
-# 9 "D:/zephyr-course/app/boards/our_board/our_board_procpu.dts" 2
+# 9 "D:/zephyr-course/boards/our_board/our_board_procpu.dts" 2
 # 1 "D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/input/input-event-codes.h" 1 3 4
-# 10 "D:/zephyr-course/app/boards/our_board/our_board_procpu.dts" 2
+# 10 "D:/zephyr-course/boards/our_board/our_board_procpu.dts" 2
 # 1 "D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/input/esp32-touch-sensor-input.h" 1 3 4
-# 11 "D:/zephyr-course/app/boards/our_board/our_board_procpu.dts" 2
+# 11 "D:/zephyr-course/boards/our_board/our_board_procpu.dts" 2
 # 1 "D:/zephyr-course/deps/zephyr/dts/vendor/espressif/partitions_0x0_amp.dtsi" 1 3 4
 
 
@@ -805,8 +805,8 @@
  };
 };
 # 8 "D:/zephyr-course/deps/zephyr/dts/vendor/espressif/partitions_0x0_amp.dtsi" 2 3 4
-# 12 "D:/zephyr-course/app/boards/our_board/our_board_procpu.dts" 2
-# 1 "D:/zephyr-course/app/boards/our_board/esp32s3_devkitc-pinctrl.dtsi" 1
+# 12 "D:/zephyr-course/boards/our_board/our_board_procpu.dts" 2
+# 1 "D:/zephyr-course/boards/our_board/our_board-pinctrl.dtsi" 1
 
 
 
@@ -814,10 +814,10 @@
 
 
 # 1 "D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pinctrl/esp-pinctrl-common.h" 1 3 4
-# 8 "D:/zephyr-course/app/boards/our_board/esp32s3_devkitc-pinctrl.dtsi" 2
+# 8 "D:/zephyr-course/boards/our_board/our_board-pinctrl.dtsi" 2
 
 # 1 "D:/zephyr-course/deps/zephyr/include/zephyr/dt-bindings/pinctrl/esp32s3-gpio-sigmap.h" 1 3 4
-# 10 "D:/zephyr-course/app/boards/our_board/esp32s3_devkitc-pinctrl.dtsi" 2
+# 10 "D:/zephyr-course/boards/our_board/our_board-pinctrl.dtsi" 2
 
 &pinctrl {
  uart0_default: uart0_default {
@@ -917,10 +917,10 @@
   };
  };
 };
-# 13 "D:/zephyr-course/app/boards/our_board/our_board_procpu.dts" 2
+# 13 "D:/zephyr-course/boards/our_board/our_board_procpu.dts" 2
 
 / {
- model = "Espressif ESP32S3-DevkitC PROCPU";
+ model = "IOMICO OUR-BOARD PROCPU";
  compatible = "espressif,esp32s3";
 
  aliases {

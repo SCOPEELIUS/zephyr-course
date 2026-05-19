@@ -1,7 +1,5 @@
 C:\Users\Lenovo\zephyr-sdk-1.0.1\cmake\zephyr\Kconfig
 D:\zephyr-course\app\Kconfig
-D:\zephyr-course\app\boards\our_board\Kconfig
-D:\zephyr-course\app\boards\our_board\Kconfig.our_board
 D:\zephyr-course\app\build\Kconfig\Kconfig.dts
 D:\zephyr-course\app\build\Kconfig\Kconfig.modules
 D:\zephyr-course\app\build\Kconfig\Kconfig.shield
@@ -13,6 +11,8 @@ D:\zephyr-course\app\build\Kconfig\boards\Kconfig.our_board
 D:\zephyr-course\app\build\Kconfig\soc\Kconfig
 D:\zephyr-course\app\build\Kconfig\soc\Kconfig.defconfig
 D:\zephyr-course\app\build\Kconfig\soc\Kconfig.soc
+D:\zephyr-course\boards\our_board\Kconfig
+D:\zephyr-course\boards\our_board\Kconfig.our_board
 D:\zephyr-course\deps\modules\hal\espressif\components\soc\esp32\include\soc\Kconfig.soc_caps.in
 D:\zephyr-course\deps\modules\hal\espressif\components\soc\esp32c2\include\soc\Kconfig.soc_caps.in
 D:\zephyr-course\deps\modules\hal\espressif\components\soc\esp32c3\include\soc\Kconfig.soc_caps.in

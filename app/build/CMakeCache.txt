@@ -27,7 +27,7 @@ APPLICATION_SOURCE_DIR:PATH=D:/zephyr-course/app
 BOARD:STRING=our_board/esp32s3/procpu
 
 //Main board directory for board (our_board)
-BOARD_DIR:PATH=D:/zephyr-course/app/boards/our_board
+BOARD_DIR:PATH=D:/zephyr-course/boards/our_board
 
 //Path to a program.
 BOSSAC:FILEPATH=BOSSAC-NOTFOUND
@@ -423,7 +423,7 @@ my_zephyr_app_SOURCE_DIR:STATIC=D:/zephyr-course/app
 ########################
 
 //List of board directories for board (our_board)
-BOARD_DIRECTORIES:INTERNAL=D:/zephyr-course/app/boards/our_board
+BOARD_DIRECTORIES:INTERNAL=D:/zephyr-course/boards/our_board
 //DT bindings root directories
 CACHED_DTS_ROOT_BINDINGS:INTERNAL=D:/zephyr-course/deps/zephyr/dts/bindings
 //ADVANCED property for variable: CMAKE_ADDR2LINE

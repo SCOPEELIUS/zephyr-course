@@ -357,7 +357,7 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/app/boards/our_board/our_board_procpu_defconfig",
+      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
       4
     ]
   ],
@@ -789,7 +789,7 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/app/boards/our_board/our_board_procpu_defconfig",
+      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
       6
     ]
   ],
@@ -973,7 +973,7 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/app/boards/our_board/our_board_procpu_defconfig",
+      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
       3
     ]
   ],
@@ -4970,7 +4970,7 @@
     "4096",
     "default",
     [
-      "D:/zephyr-course/app/boards/our_board/Kconfig",
+      "D:/zephyr-course/boards/our_board/Kconfig",
       6
     ]
   ],
@@ -7258,7 +7258,7 @@
     "y",
     "assign",
     [
-      "D:/zephyr-course/app/boards/our_board/our_board_procpu_defconfig",
+      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
       5
     ]
   ],
