@@ -8,6 +8,6 @@ set(BOARD our_board/esp32s3/procpu)
 find_package(Zephyr REQUIRED)
 project(my_zephyr_app)
 
-target_sources(app PRIVATE src/main.cpp)
+target_sources(app PRIVATE src/main.c)
 
 add_subdirectory(drivers/our_driver)
