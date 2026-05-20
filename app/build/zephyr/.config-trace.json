@@ -449,14 +449,24 @@
     null
   ],
   [
+    "CONFIG_SHELL_STACK_SIZE",
+    "y",
+    "int",
+    "2048",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      50
+    ]
+  ],
+  [
     "CONFIG_SERIAL",
     "y",
     "bool",
     "y",
-    "assign",
+    "select",
     [
-      "D:/zephyr-course/boards/our_board/our_board_procpu_defconfig",
-      4
+      "SHELL_BACKEND_SERIAL && SHELL_BACKENDS && SHELL"
     ]
   ],
   [
@@ -495,9 +505,11 @@
     "CONFIG_UART_INTERRUPT_DRIVEN",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "SHELL_BACKEND_SERIAL_API_INTERRUPT_DRIVEN && SERIAL_SUPPORT_INTERRUPT && <choice SHELL_BACKEND_SERIAL_API>"
+    ]
   ],
   [
     "CONFIG_GPIO_HOGS",
@@ -811,9 +823,11 @@
     "CONFIG_INIT_STACKS",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "imply",
+    [
+      "KERNEL_SHELL && SHELL"
+    ]
   ],
   [
     "CONFIG_TIMESLICE_SIZE",
@@ -992,6 +1006,17 @@
     [
       "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\Kconfig.misc",
       124
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      19
     ]
   ],
   [
@@ -6204,6 +6229,14 @@
     null
   ],
   [
+    "CONFIG_ISR_TABLE_SHELL",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
     "CONFIG_EXCEPTION_DUMP_HOOK",
     "y",
     "bool",
@@ -6710,17 +6743,32 @@
     "CONFIG_THREAD_MONITOR",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "imply",
+    [
+      "KERNEL_SHELL && SHELL"
+    ]
   ],
   [
     "CONFIG_THREAD_NAME",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "imply",
+    [
+      "KERNEL_SHELL && SHELL"
+    ]
+  ],
+  [
+    "CONFIG_THREAD_MAX_NAME_LEN",
+    "y",
+    "int",
+    "32",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\kernel\\Kconfig",
+      502
+    ]
   ],
   [
     "CONFIG_THREAD_RUNTIME_STATS",
@@ -6871,9 +6919,11 @@
     "CONFIG_EVENTS",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "SHELL"
+    ]
   ],
   [
     "CONFIG_HEAP_MEM_POOL_SIZE",
@@ -6992,9 +7042,11 @@
     "CONFIG_DEVICE_DT_METADATA",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "imply",
+    [
+      "SHELL_DEVICE_HELPERS && SHELL"
+    ]
   ],
   [
     "CONFIG_DEVICE_DEINIT_SUPPORT",
@@ -7685,6 +7737,14 @@
     ]
   ],
   [
+    "CONFIG_GPIO_SHELL",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
     "CONFIG_GPIO_GET_DIRECTION",
     "y",
     "bool",
@@ -8178,6 +8238,14 @@
     ]
   ],
   [
+    "CONFIG_PWM_SHELL",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
     "CONFIG_PWM_CAPTURE",
     "y",
     "bool",
@@ -8400,6 +8468,14 @@
   ],
   [
     "CONFIG_UART_ASYNC_RX_HELPER",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_SHELL",
     "y",
     "bool",
     null,
@@ -9134,7 +9210,8 @@
     "y",
     "select",
     [
-      "LOG_MODE_DEFERRED && <choice LOG_MODE>"
+      "LOG_MODE_DEFERRED && <choice LOG_MODE>",
+      "SHELL_LOG_BACKEND && LOG && !LOG_MODE_MINIMAL && SHELL"
     ]
   ],
   [
@@ -9486,7 +9563,8 @@
     "y",
     "select",
     [
-      "POSIX_AEP_CHOICE_ZEPHYR && <choice POSIX_AEP_CHOICE>"
+      "POSIX_AEP_CHOICE_ZEPHYR && <choice POSIX_AEP_CHOICE>",
+      "SHELL_WILDCARD && SHELL"
     ]
   ],
   [
@@ -9531,7 +9609,8 @@
     "y",
     "select",
     [
-      "MULTITHREADING"
+      "MULTITHREADING",
+      "SHELL_BACKEND_SERIAL && SHELL_BACKENDS && SHELL"
     ]
   ],
   [
@@ -9589,7 +9668,8 @@
     "y",
     "select",
     [
-      "POSIX_C_LIB_EXT"
+      "POSIX_C_LIB_EXT",
+      "DEVMEM_SHELL && SHELL"
     ]
   ],
   [
@@ -10042,9 +10122,22 @@
     "CONFIG_LOG_RUNTIME_FILTERING",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "imply",
+    [
+      "SHELL"
+    ]
+  ],
+  [
+    "CONFIG_LOG_RUNTIME_DEFAULT_LEVEL",
+    "y",
+    "int",
+    "3",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\Kconfig.filtering",
+      17
+    ]
   ],
   [
     "CONFIG_LOG_DEFAULT_LEVEL",
@@ -10335,27 +10428,6 @@
     ]
   ],
   [
-    "CONFIG_LOG_BACKEND_SUPPORTS_FORMAT_TIMESTAMP",
-    "n",
-    "bool",
-    "y",
-    "select",
-    [
-      "LOG_BACKEND_UART && UART_CONSOLE && !LOG_FRONTEND_ONLY && !LOG_MODE_MINIMAL && LOG"
-    ]
-  ],
-  [
-    "CONFIG_LOG_BACKEND_FORMAT_TIMESTAMP",
-    "y",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\Kconfig.formatting",
-      200
-    ]
-  ],
-  [
     "CONFIG_LOG_OUTPUT_FORMAT_TIME_TIMESTAMP",
     "y",
     "bool",
@@ -10426,75 +10498,20 @@
     "CONFIG_LOG_BACKEND_UART",
     "y",
     "bool",
-    "y",
-    "default",
-    [
-      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\backends\\Kconfig.uart",
-      7
-    ]
-  ],
-  [
-    "CONFIG_LOG_BACKEND_UART_BUFFER_SIZE",
-    "y",
-    "int",
-    "1",
-    "default",
-    [
-      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\backends\\Kconfig.uart",
-      22
-    ]
-  ],
-  [
-    "CONFIG_LOG_BACKEND_UART_AUTOSTART",
-    "y",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\backends\\Kconfig.uart",
-      33
-    ]
-  ],
-  [
-    "CONFIG_LOG_BACKEND_UART_OUTPUT_TEXT",
-    "y",
-    "bool",
-    "y",
-    "default",
-    [
-      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\Kconfig.template.log_format_config",
-      6
-    ]
-  ],
-  [
-    "CONFIG_LOG_BACKEND_UART_OUTPUT_DICTIONARY",
-    "y",
-    "bool",
     null,
     "unset",
     null
-  ],
-  [
-    "CONFIG_LOG_BACKEND_UART_OUTPUT_CUSTOM",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_LOG_BACKEND_UART_OUTPUT_DEFAULT",
-    "n",
-    "int",
-    "0",
-    "default",
-    [
-      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\Kconfig.template.log_format_config",
-      42
-    ]
   ],
   [
     "CONFIG_LOG_BACKEND_IPC_SERVICE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_CMDS",
     "y",
     "bool",
     null,
@@ -10595,7 +10612,7 @@
     "y",
     "select",
     [
-      "LOG_BACKEND_UART_OUTPUT_TEXT && <choice LOG_BACKEND_UART_OUTPUT>"
+      "SHELL_LOG_BACKEND && LOG && !LOG_MODE_MINIMAL && SHELL"
     ]
   ],
   [
@@ -10658,6 +10675,14 @@
   ],
   [
     "CONFIG_PM_POLICY_LATENCY_STANDALONE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PM_CPU_SHELL",
     "y",
     "bool",
     null,
@@ -10768,6 +10793,899 @@
   ],
   [
     "CONFIG_SHELL",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "D:/zephyr-course/app/prj.conf",
+      15
+    ]
+  ],
+  [
+    "CONFIG_SHELL_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_SHELL_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\logging\\Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKENDS",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      8
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_INIT_PRIORITY",
+    "y",
+    "int",
+    "90",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      29
+    ]
+  ],
+  [
+    "CONFIG_SHELL_PROMPT_UART",
+    "y",
+    "string",
+    "uart:~$ ",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      37
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_INTERRUPT_DRIVEN",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      44
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_API_POLLING",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_API_INTERRUPT_DRIVEN",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      57
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_API_ASYNC",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_FORCE_TX_BLOCKING_MODE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_TX_RING_BUFFER_SIZE",
+    "y",
+    "int",
+    "8",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      83
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_RX_RING_BUFFER_SIZE",
+    "y",
+    "int",
+    "64",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      93
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_LOG_MESSAGE_QUEUE_TIMEOUT",
+    "y",
+    "int",
+    "100",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig.template.shell_log_queue_timeout",
+      5
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_LOG_MESSAGE_QUEUE_SIZE",
+    "y",
+    "int",
+    "512",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig.template.shell_log_queue_size",
+      5
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      162
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_LOG_LEVEL_NONE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_SERIAL_LOG_LEVEL",
+    "n",
+    "int",
+    "5",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\backends\\Kconfig.backends",
+      191
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BACKEND_DUMMY",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_MINIMAL",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_DEVICE_HELPERS",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      31
+    ]
+  ],
+  [
+    "CONFIG_SHELL_THREAD_PRIORITY_OVERRIDE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_BACKSPACE_MODE_DELETE",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      57
+    ]
+  ],
+  [
+    "CONFIG_SHELL_PROMPT_CHANGE",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      65
+    ]
+  ],
+  [
+    "CONFIG_SHELL_PROMPT_BUFF_SIZE",
+    "y",
+    "int",
+    "20",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      76
+    ]
+  ],
+  [
+    "CONFIG_SHELL_CMD_BUFF_SIZE",
+    "y",
+    "int",
+    "256",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      84
+    ]
+  ],
+  [
+    "CONFIG_SHELL_PRINTF_BUFF_SIZE",
+    "y",
+    "int",
+    "30",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      91
+    ]
+  ],
+  [
+    "CONFIG_SHELL_PRINTF_AUTOFLUSH",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      99
+    ]
+  ],
+  [
+    "CONFIG_SHELL_DEFAULT_TERMINAL_WIDTH",
+    "y",
+    "int",
+    "80",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      107
+    ]
+  ],
+  [
+    "CONFIG_SHELL_DEFAULT_TERMINAL_HEIGHT",
+    "y",
+    "int",
+    "24",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      113
+    ]
+  ],
+  [
+    "CONFIG_SHELL_ARGC_MAX",
+    "y",
+    "int",
+    "20",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      119
+    ]
+  ],
+  [
+    "CONFIG_SHELL_TAB",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      125
+    ]
+  ],
+  [
+    "CONFIG_SHELL_TAB_AUTOCOMPLETION",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      134
+    ]
+  ],
+  [
+    "CONFIG_SHELL_ASCII_FILTER",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      141
+    ]
+  ],
+  [
+    "CONFIG_SHELL_WILDCARD",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      150
+    ]
+  ],
+  [
+    "CONFIG_SHELL_MSG_CMD_NOT_FOUND",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      156
+    ]
+  ],
+  [
+    "CONFIG_SHELL_MSG_SPECIFY_SUBCOMMAND",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      162
+    ]
+  ],
+  [
+    "CONFIG_SHELL_ECHO_STATUS",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      168
+    ]
+  ],
+  [
+    "CONFIG_SHELL_START_OBSCURED",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_VT100_COMMANDS",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      180
+    ]
+  ],
+  [
+    "CONFIG_SHELL_VT100_COLORS",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      187
+    ]
+  ],
+  [
+    "CONFIG_SHELL_GETOPT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_METAKEYS",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      202
+    ]
+  ],
+  [
+    "CONFIG_SHELL_HELP",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      210
+    ]
+  ],
+  [
+    "CONFIG_SHELL_HELP_OPT_PARSE",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      218
+    ]
+  ],
+  [
+    "CONFIG_SHELL_HELP_ON_WRONG_ARGUMENT_COUNT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      227
+    ]
+  ],
+  [
+    "CONFIG_SHELL_HISTORY",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      231
+    ]
+  ],
+  [
+    "CONFIG_SHELL_HISTORY_BUFFER",
+    "y",
+    "int",
+    "512",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      239
+    ]
+  ],
+  [
+    "CONFIG_SHELL_STATS",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      246
+    ]
+  ],
+  [
+    "CONFIG_SHELL_CMDS",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      250
+    ]
+  ],
+  [
+    "CONFIG_SHELL_CMDS_RESIZE",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      258
+    ]
+  ],
+  [
+    "CONFIG_SHELL_CMDS_SELECT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_CMD_ROOT",
+    "y",
+    "string",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_LOG_BACKEND",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      283
+    ]
+  ],
+  [
+    "CONFIG_SHELL_LOG_BACKEND_CUSTOM",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_LOG_OUTPUT_TIMESTAMP",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      303
+    ]
+  ],
+  [
+    "CONFIG_SHELL_LOG_FORMAT_TIMESTAMP",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      309
+    ]
+  ],
+  [
+    "CONFIG_SHELL_LOG_OUTPUT_LEVEL",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      315
+    ]
+  ],
+  [
+    "CONFIG_SHELL_LOG_OUTPUT_CRLF_NONE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_LOG_OUTPUT_CRLF_LFONLY",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_LOG_OUTPUT_THREAD",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      331
+    ]
+  ],
+  [
+    "CONFIG_SHELL_LOG_OUTPUT_SKIP_SOURCE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_AUTOSTART",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      344
+    ]
+  ],
+  [
+    "CONFIG_SHELL_CMDS_RETURN_VALUE",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      351
+    ]
+  ],
+  [
+    "CONFIG_SHELL_CUSTOM_HEADER",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SHELL_TX_TIMEOUT_MS",
+    "y",
+    "int",
+    "500",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      367
+    ]
+  ],
+  [
+    "CONFIG_SHELL_BYPASS_READ_BUF_SIZE",
+    "y",
+    "int",
+    "16",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\Kconfig",
+      379
+    ]
+  ],
+  [
+    "CONFIG_DEVICE_SHELL",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\Kconfig",
+      8
+    ]
+  ],
+  [
+    "CONFIG_DEVICE_SHELL_INIT_CMD",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\Kconfig",
+      15
+    ]
+  ],
+  [
+    "CONFIG_DATE_SHELL",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\Kconfig",
+      25
+    ]
+  ],
+  [
+    "CONFIG_DEVMEM_SHELL",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\Kconfig",
+      31
+    ]
+  ],
+  [
+    "CONFIG_ZYCLICTEST_SHELL",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_KERNEL_SHELL",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\kernel_service\\Kconfig",
+      8
+    ]
+  ],
+  [
+    "CONFIG_KERNEL_THREAD_SHELL",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "KERNEL_THREAD_SHELL_LIST && INIT_STACKS && THREAD_MONITOR && THREAD_STACK_INFO && KERNEL_SHELL && SHELL",
+      "KERNEL_THREAD_SHELL_STACKS && INIT_STACKS && THREAD_MONITOR && THREAD_STACK_INFO && KERNEL_SHELL && SHELL",
+      "KERNEL_THREAD_SHELL_SUSPEND && THREAD_MONITOR && KERNEL_SHELL && SHELL",
+      "KERNEL_THREAD_SHELL_RESUME && THREAD_MONITOR && KERNEL_SHELL && SHELL",
+      "KERNEL_THREAD_SHELL_KILL && THREAD_MONITOR && KERNEL_SHELL && SHELL"
+    ]
+  ],
+  [
+    "CONFIG_KERNEL_THREAD_SHELL_LIST",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\kernel_service\\thread\\Kconfig",
+      15
+    ]
+  ],
+  [
+    "CONFIG_KERNEL_THREAD_SHELL_STACKS",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\kernel_service\\thread\\Kconfig",
+      25
+    ]
+  ],
+  [
+    "CONFIG_KERNEL_THREAD_SHELL_SUSPEND",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\kernel_service\\thread\\Kconfig",
+      60
+    ]
+  ],
+  [
+    "CONFIG_KERNEL_THREAD_SHELL_RESUME",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\kernel_service\\thread\\Kconfig",
+      68
+    ]
+  ],
+  [
+    "CONFIG_KERNEL_THREAD_SHELL_KILL",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "D:\\zephyr-course\\deps\\zephyr\\subsys\\shell\\modules\\kernel_service\\thread\\Kconfig",
+      76
+    ]
+  ],
+  [
+    "CONFIG_KERNEL_SHELL_PANIC_CMD",
     "y",
     "bool",
     null,
