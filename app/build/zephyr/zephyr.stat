@@ -10,7 +10,7 @@ ELF Header:
   Version:                           0x1
   Entry point address:               0x40379594
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          3182316 (bytes into file)
+  Start of section headers:          3183964 (bytes into file)
   Flags:                             0x300
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -22,18 +22,18 @@ ELF Header:
 Section Headers:
   [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
   [ 0]                   NULL            00000000 000000 000000 00      0   0  0
-  [ 1] .rtc.text         PROGBITS        600fe000 0234cc 000000 00   W  0   0  1
-  [ 2] .rtc.force_fast   PROGBITS        600fe000 0234cc 000000 00   W  0   0  1
-  [ 3] .rtc.data         PROGBITS        50000000 0234cc 000000 00   W  0   0  1
-  [ 4] .rtc_noinit       PROGBITS        50000000 0234cc 000000 00   W  0   0  1
+  [ 1] .rtc.text         PROGBITS        600fe000 0235b8 000000 00   W  0   0  1
+  [ 2] .rtc.force_fast   PROGBITS        600fe000 0235b8 000000 00   W  0   0  1
+  [ 3] .rtc.data         PROGBITS        50000000 0235b8 000000 00   W  0   0  1
+  [ 4] .rtc_noinit       PROGBITS        50000000 0235b8 000000 00   W  0   0  1
   [ 5] .rtc.force_slow   PROGBITS        50000000 0001d4 000024 00  WA  0   0  4
   [ 6] .iram0.vectors    PROGBITS        40374000 0001f8 000400 00  AX  0   0  4
   [ 7] .iram0.text       PROGBITS        40374400 0005f8 00a52c 00  AX  0   0  4
   [ 8] .loader.text      PROGBITS        4037e92c 00ab24 00036c 00  AX  0   0  4
   [ 9] .iram0.text_end   NOBITS          4037ec98 00c99c 000010 00  WA  0   0  1
-  [10] .iram0.data       PROGBITS        4037eca8 0234cc 000000 00   W  0   0  1
-  [11] .iram0.bss        PROGBITS        4037eca8 0234cc 000000 00   W  0   0  1
-  [12] .dram0.dummy      NOBITS          3fc88000 0234cc 006cb0 00  WA  0   0  1
+  [10] .iram0.data       PROGBITS        4037eca8 0235b8 000000 00   W  0   0  1
+  [11] .iram0.bss        PROGBITS        4037eca8 0235b8 000000 00   W  0   0  1
+  [12] .dram0.dummy      NOBITS          3fc88000 0235b8 006cb0 00  WA  0   0  1
   [13] .dram0.data       PROGBITS        3fc8ecb0 00ae90 001b0c 00  WA  0   0  8
   [14] .loader.data      PROGBITS        3fc907bc 00c99c 00022c 00   A  0   0  4
   [15] sw_isr_table      PROGBITS        3fc909e8 00cbc8 000100 00  WA  0   0  4
@@ -47,37 +47,37 @@ Section Headers:
   [23] log_backend_area  PROGBITS        3fc90c1c 00cdfc 000010 00   A  0   0  4
   [24] .dram0.noinit     NOBITS          3fc90c30 00ce10 003a44 00  WA  0   0 16
   [25] .dram0.bss        NOBITS          3fc94680 00ce10 000f20 00  WA  0   0 16
-  [26] .text             PROGBITS        42000000 00ce10 00a876 00 WAX  0   0 16
+  [26] .text             PROGBITS        42000000 00ce10 00a92a 00 WAX  0   0 16
   [27] .text_dummy       NOBITS          0000cc38 00ce0c 0033c8 00  WA  0   0  1
-  [28] .flash.rodat[...] NOBITS          3c000000 0234cc 010000 00  WA  0   0  1
-  [29] .flash.rodata     PROGBITS        3c010000 020000 003174 00   A  0   0 65536
-  [30] .flash.rodata_end PROGBITS        3c0134d0 0234d0 000000 00   W  0   0 16
-  [31] initlevel         PROGBITS        3c013174 023174 000068 00   A  0   0  4
-  [32] device_area       PROGBITS        3c0131dc 0231dc 0000c0 00   A  0   0  4
-  [33] gpio_driver_[...] PROGBITS        3c01329c 02329c 000024 00   A  0   0  4
-  [34] pwm_driver_a[...] PROGBITS        3c0132c0 0232c0 000008 00   A  0   0  4
-  [35] clock_contro[...] PROGBITS        3c0132c8 0232c8 00001c 00   A  0   0  4
-  [36] sensor_drive[...] PROGBITS        3c0132e4 0232e4 00001c 00   A  0   0  4
-  [37] uart_driver_[...] PROGBITS        3c013300 023300 00004c 00   A  0   0  4
-  [38] shell_area        PROGBITS        3c01334c 02334c 000030 00   A  0   0  4
-  [39] shell_root_c[...] PROGBITS        3c01337c 02337c 000030 00   A  0   0  4
-  [40] shell_subcmd[...] PROGBITS        3c0133ac 0233ac 000118 00   A  0   0  4
-  [41] shell_dynami[...] PROGBITS        3c0134c4 0234c4 000008 00   A  0   0  4
-  [42] .comment          PROGBITS        00000000 0234d0 00001f 01  MS  0   0  1
-  [43] .debug_aranges    PROGBITS        00000000 0234f0 0039a0 00      0   0  8
-  [44] .debug_info       PROGBITS        00000000 026e90 16c80c 00      0   0  1
-  [45] .debug_abbrev     PROGBITS        00000000 19369c 024531 00      0   0  1
-  [46] .debug_line       PROGBITS        00000000 1b7bcd 09dfd5 00      0   0  1
-  [47] .debug_frame      PROGBITS        00000000 255ba4 008814 00      0   0  4
-  [48] .debug_str        PROGBITS        00000000 25e3b8 02a6e5 01  MS  0   0  1
-  [49] .debug_loc        PROGBITS        00000000 288a9d 03e797 00      0   0  1
-  [50] .debug_ranges     PROGBITS        00000000 2c7238 00b9f0 00      0   0  8
-  [51] .xtensa.info      NOTE            00000000 2d2c28 000038 00      0   0  1
-  [52] .xt.prop          PROGBITS        00000000 2d2c60 0126a8 00      0   0  1
-  [53] .xt.lit           PROGBITS        00000000 2e5308 000b28 00      0   0  1
-  [54] .symtab           SYMTAB          00000000 2e5e30 00f0c0 10     55 884  4
-  [55] .strtab           STRTAB          00000000 2f4ef0 013ce5 00      0   0  1
-  [56] .shstrtab         STRTAB          00000000 308bd5 000314 00      0   0  1
+  [28] .flash.rodat[...] NOBITS          3c000000 0235b8 010000 00  WA  0   0  1
+  [29] .flash.rodata     PROGBITS        3c010000 020000 003260 00   A  0   0 65536
+  [30] .flash.rodata_end PROGBITS        3c0135c0 0235c0 000000 00   W  0   0 16
+  [31] initlevel         PROGBITS        3c013260 023260 000068 00   A  0   0  4
+  [32] device_area       PROGBITS        3c0132c8 0232c8 0000c0 00   A  0   0  4
+  [33] gpio_driver_[...] PROGBITS        3c013388 023388 000024 00   A  0   0  4
+  [34] pwm_driver_a[...] PROGBITS        3c0133ac 0233ac 000008 00   A  0   0  4
+  [35] clock_contro[...] PROGBITS        3c0133b4 0233b4 00001c 00   A  0   0  4
+  [36] sensor_drive[...] PROGBITS        3c0133d0 0233d0 00001c 00   A  0   0  4
+  [37] uart_driver_[...] PROGBITS        3c0133ec 0233ec 00004c 00   A  0   0  4
+  [38] shell_area        PROGBITS        3c013438 023438 000030 00   A  0   0  4
+  [39] shell_root_c[...] PROGBITS        3c013468 023468 000030 00   A  0   0  4
+  [40] shell_subcmd[...] PROGBITS        3c013498 023498 000118 00   A  0   0  4
+  [41] shell_dynami[...] PROGBITS        3c0135b0 0235b0 000008 00   A  0   0  4
+  [42] .comment          PROGBITS        00000000 0235c0 00001f 01  MS  0   0  1
+  [43] .debug_aranges    PROGBITS        00000000 0235e0 0039a8 00      0   0  8
+  [44] .debug_info       PROGBITS        00000000 026f88 16c9ac 00      0   0  1
+  [45] .debug_abbrev     PROGBITS        00000000 193934 02454f 00      0   0  1
+  [46] .debug_line       PROGBITS        00000000 1b7e83 09e1c1 00      0   0  1
+  [47] .debug_frame      PROGBITS        00000000 256044 00882c 00      0   0  4
+  [48] .debug_str        PROGBITS        00000000 25e870 02a6fe 01  MS  0   0  1
+  [49] .debug_loc        PROGBITS        00000000 288f6e 03e7f8 00      0   0  1
+  [50] .debug_ranges     PROGBITS        00000000 2c7768 00b9f8 00      0   0  8
+  [51] .xtensa.info      NOTE            00000000 2d3160 000038 00      0   0  1
+  [52] .xt.prop          PROGBITS        00000000 2d3198 01278c 00      0   0  1
+  [53] .xt.lit           PROGBITS        00000000 2e5924 000b38 00      0   0  1
+  [54] .symtab           SYMTAB          00000000 2e645c 00f0e0 10     55 885  4
+  [55] .strtab           STRTAB          00000000 2f553c 013d09 00      0   0  1
+  [56] .shstrtab         STRTAB          00000000 309245 000314 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
   L (link order), O (extra OS processing required), G (group), T (TLS),
@@ -94,8 +94,8 @@ Program Headers:
   LOAD           0x000000 0x0000cc38 0x0000cc38 0x00000 0x033c8 RW  0x1
   LOAD           0x000000 0x3fc90c30 0x0000cc38 0x00000 0x03a44 RW  0x10
   LOAD           0x000000 0x3fc94680 0x0000cc38 0x00000 0x00f20 RW  0x10
-  LOAD           0x00ce10 0x42000000 0x00010000 0x0a876 0x0a876 RWE 0x10
-  LOAD           0x020000 0x3c010000 0x00020000 0x034cc 0x034cc R   0x10000
+  LOAD           0x00ce10 0x42000000 0x00010000 0x0a92a 0x0a92a RWE 0x10
+  LOAD           0x020000 0x3c010000 0x00020000 0x035b8 0x035b8 R   0x10000
   LOAD           0x000000 0x3c000000 0x3c000000 0x00000 0x10000 RW  0x1
   LOAD           0x000000 0x3fc88000 0x3fc88000 0x00000 0x06cb0 RW  0x1
   GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RW  0x10

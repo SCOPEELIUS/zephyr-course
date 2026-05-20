@@ -3,7 +3,7 @@
 #include <zephyr/logging/log.h>
 #include <zephyr/drivers/sensor.h>
 #include <zephyr/shell/shell.h>
-
+#include <stdlib.h>
 #include "our_driver.h"
 
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
@@ -48,10 +48,35 @@ static int cmd_sensor_info(const struct shell *sh, size_t argc, char **argv) {
     return 0;
 }
 
+static int cmd_sensor_set(const struct shell *sh, size_t argc, char **argv) {
+    if (!device_is_ready(my_driver_dev)) {
+        shell_error(sh, "Sensor device not ready");
+        return -ENODEV;
+    }
+
+    char *endptr;
+    long delay_val = strtol(argv[1], &endptr, 10);
+
+    if (*endptr != '\0' || delay_val < 0 || delay_val > 10000) {
+        shell_error(sh, "Error: Argument must be a valid integer between 0 and 10000");
+        return -EINVAL;
+    }
+
+    int err = our_driver_set_delay(my_driver_dev, (int)delay_val);
+    if (err) {
+        shell_error(sh, "Failed to set delay parameter: %d", err);
+    } else {
+        shell_print(sh, "Success: Custom delay parameter set to %d ms", (int)delay_val);
+    }
+
+    return err;
+}
+
 SHELL_STATIC_SUBCMD_SET_CREATE(sensor_subcmds,
     SHELL_CMD(fetch, NULL, "Call sensor_sample_fetch()", cmd_sensor_fetch),
     SHELL_CMD(info, NULL, "Print device name and ready state", cmd_sensor_info),
     SHELL_CMD(read, NULL, "Call sensor_channel_get() and print result", cmd_sensor_read),
+    SHELL_CMD_ARG(set, NULL, "Set custom delay parameter <value>", cmd_sensor_set, 2, 0),
     SHELL_SUBCMD_SET_END
 );
 
@@ -65,7 +90,7 @@ int main(void) {
     }
 
     LOG_INF("System booted. Use the shell terminal to interact with the sensor driver.");
-    
+  
     while (1) {
         k_msleep(10000);
     }
